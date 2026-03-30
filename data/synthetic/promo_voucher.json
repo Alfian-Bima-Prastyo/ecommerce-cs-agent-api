@@ -1,0 +1,440 @@
+{
+  "collection": "promo_voucher",
+  "total": 20,
+  "documents": [
+  {
+    "doc_id": "promo-001",
+    "collection": "promo_voucher",
+    "intent": "check_voucher",
+    "code": "WELCOME10",
+    "description": "Voucher selamat datang untuk member baru, dapatkan diskon 10% untuk pembelian pertama Anda.",
+    "discount": {
+      "type": "persen",
+      "value": 10
+    },
+    "min_purchase": 100000,
+    "valid_until": "2025-12-31",
+    "terms": [
+      "Hanya berlaku untuk member baru yang baru pertama kali melakukan pembelian.",
+      "Voucher hanya dapat digunakan satu kali per akun.",
+      "Tidak dapat digabungkan dengan voucher atau promo lainnya.",
+      "Berlaku untuk semua kategori produk kecuali produk yang sudah diskon."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  },
+  {
+    "doc_id": "promo-002",
+    "collection": "promo_voucher",
+    "intent": "check_voucher",
+    "code": "WEEKEND20",
+    "description": "Voucher akhir pekan dengan diskon 20% untuk pembelian minimum Rp200.000 setiap Sabtu dan Minggu.",
+    "discount": {
+      "type": "persen",
+      "value": 20
+    },
+    "min_purchase": 200000,
+    "valid_until": "2025-12-31",
+    "terms": [
+      "Hanya berlaku pada hari Sabtu dan Minggu setiap minggunya.",
+      "Minimum pembelian Rp200.000 sebelum penggunaan voucher.",
+      "Tidak dapat digabungkan dengan voucher atau kode promo lainnya.",
+      "Berlaku untuk semua metode pembayaran yang tersedia.",
+      "Kuota penggunaan voucher terbatas setiap minggunya."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  },
+  {
+    "doc_id": "promo-003",
+    "collection": "promo_voucher",
+    "intent": "flash_sale_info",
+    "code": "MIDNIGHT50",
+    "description": "Flash sale tengah malam dengan diskon 50% untuk pembelian minimum Rp150.000, berlaku pukul 00:00–01:00.",
+    "discount": {
+      "type": "persen",
+      "value": 50
+    },
+    "min_purchase": 150000,
+    "valid_until": "2025-12-31",
+    "terms": [
+      "Hanya berlaku pada periode flash sale pukul 00:00 hingga 01:00 WIB.",
+      "Tidak berlaku untuk produk yang sudah mendapatkan diskon reguler.",
+      "Stok produk flash sale sangat terbatas dan tidak dijamin tersedia sepanjang periode.",
+      "Tidak dapat digabungkan dengan voucher lain kecuali disebutkan secara eksplisit."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  },
+  {
+    "doc_id": "promo-004",
+    "collection": "promo_voucher",
+    "intent": "check_voucher",
+    "code": "ULTAH15",
+    "description": "Voucher spesial ulang tahun platform dengan diskon 15% untuk pembelian minimum Rp300.000.",
+    "discount": {
+      "type": "persen",
+      "value": 15
+    },
+    "min_purchase": 300000,
+    "valid_until": "2025-08-17",
+    "terms": [
+      "Voucher hanya berlaku selama periode perayaan ulang tahun platform.",
+      "Minimum pembelian Rp300.000 sebelum penerapan diskon.",
+      "Berlaku untuk semua kategori produk yang tidak sedang dalam promo diskon lainnya.",
+      "Tidak dapat digabungkan dengan voucher lain kecuali disebutkan secara eksplisit.",
+      "Setiap akun hanya dapat menggunakan voucher ini sebanyak satu kali."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  },
+  {
+    "doc_id": "promo-005",
+    "collection": "promo_voucher",
+    "intent": "check_voucher",
+    "code": "BULANAN25",
+    "description": "Voucher belanja bulanan dengan diskon 25% untuk pembelian minimum Rp500.000 setiap bulan.",
+    "discount": {
+      "type": "persen",
+      "value": 25
+    },
+    "min_purchase": 500000,
+    "valid_until": "2025-12-31",
+    "terms": [
+      "Voucher dapat digunakan satu kali per akun setiap bulan kalender.",
+      "Minimum pembelian Rp500.000 sebelum penerapan diskon.",
+      "Tidak dapat digabungkan dengan voucher atau kode promo lainnya.",
+      "Berlaku untuk semua metode pembayaran termasuk COD, transfer bank, dan dompet digital.",
+      "Voucher hangus jika tidak digunakan sebelum akhir bulan berjalan."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  },
+  {
+    "doc_id": "promo-006",
+    "collection": "promo_voucher",
+    "intent": "check_voucher",
+    "code": "CASHBACK10K",
+    "description": "Voucher cashback Rp10.000 untuk pembayaran menggunakan dompet digital dengan minimum pembelian Rp100.000.",
+    "discount": {
+      "type": "nominal",
+      "value": 10000
+    },
+    "min_purchase": 100000,
+    "valid_until": "2025-12-31",
+    "terms": [
+      "Hanya berlaku untuk transaksi menggunakan dompet digital seperti GoPay, OVO, Dana, dan ShopeePay.",
+      "Cashback akan dikreditkan ke dompet digital dalam 1x24 jam setelah transaksi berhasil.",
+      "Tidak dapat digabungkan dengan voucher atau promo lainnya.",
+      "Berlaku maksimal satu kali penggunaan per akun selama periode promo."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  },
+  {
+    "doc_id": "promo-007",
+    "collection": "promo_voucher",
+    "intent": "check_voucher",
+    "code": "HARBOLNAS25K",
+    "description": "Voucher spesial Hari Belanja Online Nasional potongan Rp25.000 untuk pembelian minimum Rp250.000.",
+    "discount": {
+      "type": "nominal",
+      "value": 25000
+    },
+    "min_purchase": 250000,
+    "valid_until": "2025-12-12",
+    "terms": [
+      "Hanya berlaku selama periode Hari Belanja Online Nasional pada 12 Desember 2025.",
+      "Minimum pembelian Rp250.000 sebelum penerapan potongan harga.",
+      "Berlaku untuk semua kategori produk kecuali produk yang sudah mendapatkan diskon.",
+      "Tidak dapat digabungkan dengan voucher lain kecuali disebutkan secara eksplisit.",
+      "Kuota penggunaan voucher terbatas dan berlaku selama persediaan masih ada."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  },
+  {
+    "doc_id": "promo-008",
+    "collection": "promo_voucher",
+    "intent": "check_voucher",
+    "code": "ELEKTRO50K",
+    "description": "Voucher potongan Rp50.000 khusus pembelian produk kategori elektronik dengan minimum pembelian Rp500.000.",
+    "discount": {
+      "type": "nominal",
+      "value": 50000
+    },
+    "min_purchase": 500000,
+    "valid_until": "2025-12-31",
+    "terms": [
+      "Hanya berlaku untuk pembelian produk dalam kategori elektronik.",
+      "Minimum pembelian Rp500.000 dari kategori elektronik sebelum penerapan potongan.",
+      "Tidak berlaku untuk produk elektronik yang sedang dalam promo atau diskon reguler.",
+      "Tidak dapat digabungkan dengan voucher atau kode promo lainnya.",
+      "Setiap akun hanya dapat menggunakan voucher ini satu kali dalam sebulan."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  },
+  {
+    "doc_id": "promo-009",
+    "collection": "promo_voucher",
+    "intent": "flash_sale_info",
+    "code": "FASHION75K",
+    "description": "Flash sale kategori fashion dengan potongan Rp75.000 untuk pembelian minimum Rp750.000 dalam waktu terbatas.",
+    "discount": {
+      "type": "nominal",
+      "value": 75000
+    },
+    "min_purchase": 750000,
+    "valid_until": "2025-12-31",
+    "terms": [
+      "Hanya berlaku selama periode flash sale pada jam yang telah ditentukan setiap harinya.",
+      "Khusus untuk produk dalam kategori fashion dan tidak berlaku untuk kategori lain.",
+      "Tidak berlaku untuk produk fashion yang sudah mendapatkan diskon reguler.",
+      "Stok produk flash sale sangat terbatas dan tidak dijamin tersedia sepanjang periode.",
+      "Tidak dapat digabungkan dengan voucher lain kecuali disebutkan secara eksplisit."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  },
+  {
+    "doc_id": "promo-010",
+    "collection": "promo_voucher",
+    "intent": "check_voucher",
+    "code": "PREMIUM100K",
+    "description": "Voucher belanja premium potongan Rp100.000 untuk pembelian minimum Rp1.000.000 bagi pelanggan setia.",
+    "discount": {
+      "type": "nominal",
+      "value": 100000
+    },
+    "min_purchase": 1000000,
+    "valid_until": "2025-12-31",
+    "terms": [
+      "Hanya berlaku untuk pelanggan dengan status keanggotaan Premium atau Gold.",
+      "Minimum pembelian Rp1.000.000 dalam satu transaksi sebelum penerapan potongan.",
+      "Berlaku untuk semua kategori produk kecuali produk yang sudah mendapatkan diskon.",
+      "Tidak dapat digabungkan dengan voucher atau kode promo lainnya.",
+      "Setiap akun hanya dapat menggunakan voucher ini satu kali per bulan kalender."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  },
+  {
+    "doc_id": "promo-011",
+    "collection": "promo_voucher",
+    "intent": "delivery_period",
+    "code": "ONGKIRGRATIS20K",
+    "description": "Voucher gratis ongkir potongan Rp20.000 untuk semua kurir dengan minimum pembelian Rp100.000.",
+    "discount": {
+      "type": "nominal",
+      "value": 20000
+    },
+    "min_purchase": 100000,
+    "valid_until": "2025-12-31",
+    "terms": [
+      "Berlaku untuk semua mitra kurir yang tersedia di platform termasuk JNE, SiCepat, JT Express, dan Gosend.",
+      "Potongan ongkir maksimal Rp20.000 per transaksi dan tidak dapat diuangkan.",
+      "Minimum pembelian Rp100.000 sebelum penerapan potongan ongkos kirim.",
+      "Tidak dapat digabungkan dengan voucher ongkir atau promo pengiriman lainnya."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  },
+  {
+    "doc_id": "promo-012",
+    "collection": "promo_voucher",
+    "intent": "delivery_period",
+    "code": "JNEFREE30K",
+    "description": "Voucher gratis ongkir khusus pengiriman JNE potongan Rp30.000 dengan minimum pembelian Rp150.000.",
+    "discount": {
+      "type": "nominal",
+      "value": 30000
+    },
+    "min_purchase": 150000,
+    "valid_until": "2025-12-31",
+    "terms": [
+      "Hanya berlaku untuk transaksi yang memilih metode pengiriman JNE Regular atau JNE YES.",
+      "Potongan ongkir maksimal Rp30.000 dan selisih biaya kirim di atas nilai voucher tetap dibebankan ke pembeli.",
+      "Minimum pembelian Rp150.000 sebelum penerapan potongan ongkos kirim.",
+      "Tidak dapat digabungkan dengan voucher ongkir atau promo pengiriman lainnya.",
+      "Setiap akun hanya dapat menggunakan voucher ini satu kali selama periode berlaku."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  },
+  {
+    "doc_id": "promo-013",
+    "collection": "promo_voucher",
+    "intent": "delivery_period",
+    "code": "SICEPATAKHIRBULAN",
+    "description": "Voucher gratis ongkir SiCepat potongan Rp25.000 khusus akhir bulan dengan minimum pembelian Rp200.000.",
+    "discount": {
+      "type": "nominal",
+      "value": 25000
+    },
+    "min_purchase": 200000,
+    "valid_until": "2025-12-31",
+    "terms": [
+      "Hanya berlaku pada tanggal 28 hingga 31 setiap bulan untuk pengiriman menggunakan SiCepat.",
+      "Potongan ongkir maksimal Rp25.000 dan selisih biaya kirim di atas nilai voucher tetap dibebankan ke pembeli.",
+      "Minimum pembelian Rp200.000 sebelum penerapan potongan ongkos kirim.",
+      "Tidak dapat digabungkan dengan voucher ongkir atau promo pengiriman lainnya."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  },
+  {
+    "doc_id": "promo-014",
+    "collection": "promo_voucher",
+    "intent": "delivery_period",
+    "code": "GOSEND15K",
+    "description": "Voucher subsidi ongkir Gosend same-day potongan Rp15.000 untuk pengiriman di hari yang sama.",
+    "discount": {
+      "type": "nominal",
+      "value": 15000
+    },
+    "min_purchase": 100000,
+    "valid_until": "2025-12-31",
+    "terms": [
+      "Hanya berlaku untuk pengiriman menggunakan layanan Gosend dengan opsi same-day delivery.",
+      "Pesanan harus dilakukan sebelum pukul 13:00 WIB agar dapat diproses pada hari yang sama.",
+      "Potongan ongkir maksimal Rp15.000 dan selisih biaya kirim di atas nilai voucher tetap dibebankan ke pembeli.",
+      "Tidak dapat digabungkan dengan voucher ongkir atau promo pengiriman lainnya.",
+      "Layanan same-day delivery hanya tersedia di kota-kota tertentu sesuai jangkauan mitra kurir."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  },
+  {
+    "doc_id": "promo-015",
+    "collection": "promo_voucher",
+    "intent": "delivery_period",
+    "code": "JTWEEKEND20K",
+    "description": "Voucher gratis ongkir JT Express potongan Rp20.000 khusus akhir pekan dengan minimum pembelian Rp120.000.",
+    "discount": {
+      "type": "nominal",
+      "value": 20000
+    },
+    "min_purchase": 120000,
+    "valid_until": "2025-12-31",
+    "terms": [
+      "Hanya berlaku pada hari Sabtu dan Minggu untuk pengiriman menggunakan JT Express.",
+      "Potongan ongkir maksimal Rp20.000 dan selisih biaya kirim di atas nilai voucher tetap dibebankan ke pembeli.",
+      "Minimum pembelian Rp120.000 sebelum penerapan potongan ongkos kirim.",
+      "Tidak dapat digabungkan dengan voucher ongkir atau promo pengiriman lainnya.",
+      "Setiap akun hanya dapat menggunakan voucher ini satu kali setiap akhir pekan."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  },
+  {
+    "doc_id": "promo-016",
+    "collection": "promo_voucher",
+    "intent": "cod_payment",
+    "code": "COD5K",
+    "description": "Voucher cashback Rp5.000 khusus untuk transaksi menggunakan metode pembayaran COD dengan minimum pembelian Rp50.000.",
+    "discount": {
+      "type": "nominal",
+      "value": 5000
+    },
+    "min_purchase": 50000,
+    "valid_until": "2025-12-31",
+    "terms": [
+      "Hanya berlaku untuk transaksi yang memilih metode pembayaran Cash on Delivery (COD).",
+      "Cashback Rp5.000 akan dikreditkan ke saldo akun dalam 1x24 jam setelah pesanan diterima dan dikonfirmasi.",
+      "Tidak dapat digabungkan dengan voucher atau promo lainnya.",
+      "Setiap akun hanya dapat menggunakan voucher ini satu kali selama periode berlaku."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  },
+  {
+    "doc_id": "promo-017",
+    "collection": "promo_voucher",
+    "intent": "check_voucher",
+    "code": "BUMIL30",
+    "description": "Voucher diskon 30% khusus kategori ibu dan bayi dengan minimum pembelian Rp300.000.",
+    "discount": {
+      "type": "persen",
+      "value": 30
+    },
+    "min_purchase": 300000,
+    "valid_until": "2025-12-31",
+    "terms": [
+      "Hanya berlaku untuk pembelian produk dalam kategori ibu dan bayi termasuk perlengkapan bayi, susu formula, dan pakaian bayi.",
+      "Minimum pembelian Rp300.000 dari kategori ibu dan bayi sebelum penerapan diskon.",
+      "Tidak berlaku untuk produk dalam kategori ibu dan bayi yang sudah mendapatkan diskon reguler.",
+      "Tidak dapat digabungkan dengan voucher atau kode promo lainnya.",
+      "Setiap akun hanya dapat menggunakan voucher ini satu kali per bulan kalender."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  },
+  {
+    "doc_id": "promo-018",
+    "collection": "promo_voucher",
+    "intent": "flash_sale_info",
+    "code": "CLEARANCE70",
+    "description": "Flash sale clearance akhir tahun dengan diskon 70% untuk pembelian minimum Rp200.000 dalam waktu sangat terbatas.",
+    "discount": {
+      "type": "persen",
+      "value": 70
+    },
+    "min_purchase": 200000,
+    "valid_until": "2025-12-31",
+    "terms": [
+      "Hanya berlaku selama periode flash sale clearance akhir tahun pada jam yang telah ditentukan.",
+      "Tidak berlaku untuk produk yang sudah mendapatkan diskon reguler atau promo lainnya.",
+      "Stok produk clearance sangat terbatas dan tidak dijamin tersedia sepanjang periode flash sale.",
+      "Tidak dapat digabungkan dengan voucher lain kecuali disebutkan secara eksplisit.",
+      "Produk yang dibeli dalam flash sale clearance tidak dapat dikembalikan kecuali terdapat kerusakan produk."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  },
+  {
+    "doc_id": "promo-019",
+    "collection": "promo_voucher",
+    "intent": "check_voucher",
+    "code": "REPEATORDER20K",
+    "description": "Voucher potongan Rp20.000 khusus repeat order untuk pelanggan setia yang telah melakukan minimal 3 transaksi sebelumnya.",
+    "discount": {
+      "type": "nominal",
+      "value": 20000
+    },
+    "min_purchase": 150000,
+    "valid_until": "2025-12-31",
+    "terms": [
+      "Hanya berlaku untuk pelanggan yang telah menyelesaikan minimal 3 transaksi sebelumnya di platform.",
+      "Minimum pembelian Rp150.000 dalam satu transaksi sebelum penerapan potongan harga.",
+      "Voucher dikirimkan secara otomatis ke akun pelanggan yang memenuhi syarat setiap awal bulan.",
+      "Tidak dapat digabungkan dengan voucher atau kode promo lainnya.",
+      "Voucher hangus jika tidak digunakan sebelum akhir bulan kalender berjalan."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  },
+  {
+    "doc_id": "promo-020",
+    "collection": "promo_voucher",
+    "intent": "check_voucher",
+    "code": "PAYLATER5",
+    "description": "Voucher diskon 5% untuk pengguna yang pertama kali mengaktifkan dan menggunakan fitur Paylater dengan minimum pembelian Rp50.000.",
+    "discount": {
+      "type": "persen",
+      "value": 5
+    },
+    "min_purchase": 50000,
+    "valid_until": "2025-12-31",
+    "terms": [
+      "Hanya berlaku untuk pengguna yang baru pertama kali mengaktifkan dan menggunakan layanan Paylater di platform.",
+      "Voucher hanya dapat digunakan satu kali per akun dan tidak dapat dipindahtangankan.",
+      "Berlaku untuk semua kategori produk kecuali produk yang sudah mendapatkan diskon reguler.",
+      "Tidak dapat digabungkan dengan voucher atau kode promo lainnya."
+    ],
+    "language": "id",
+    "updated_at": "2025-01-01"
+  }
+
+  ]
+}

@@ -1,0 +1,415 @@
+{
+  "collection": "sop_escalation",
+  "total": 20,
+  "documents": [
+    {
+        "doc_id": "sop-001",
+        "collection": "sop_escalation",
+        "intent": "cancel_order",
+        "title": "SOP Pembatalan Pesanan",
+        "trigger": "Customer request pembatalan pesanan yang masih aktif / belum dikirim",
+        "steps": [
+        "Langkah 1: Verifikasi identitas pelanggan dan cari data pesanan berdasarkan nomor order yang diberikan di sistem",
+        "Langkah 2: Periksa status pesanan saat ini, pastikan status masih dalam tahap menunggu pembayaran, diproses, atau belum masuk ke proses pengemasan",
+        "Langkah 3: Jika pesanan belum melewati batas waktu pembayaran 24 jam dan belum dikemas, konfirmasi permintaan pembatalan kepada pelanggan",
+        "Langkah 4: Proses pembatalan pesanan di sistem dan informasikan kepada pelanggan bahwa pembatalan berhasil dilakukan",
+        "Langkah 5: Informasikan proses refund kepada pelanggan, estimasi 3 hari kerja untuk saldo wallet atau 5 hari kerja untuk transfer bank",
+        "Langkah 6: Kirimkan notifikasi konfirmasi pembatalan beserta estimasi refund kepada pelanggan melalui email atau chat",
+        "Langkah 7: Dokumentasikan alasan pembatalan dan tutup tiket setelah pelanggan mengonfirmasi menerima informasi refund"
+        ],
+        "escalation_level": 1,
+        "escalation_condition": "Eskalasi ke level 2 jika sistem tidak dapat memproses pembatalan secara otomatis atau pesanan sudah masuk tahap pengemasan namun pelanggan tetap meminta batal",
+        "estimated_resolution_time": "1 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    },
+    {
+        "doc_id": "sop-002",
+        "collection": "sop_escalation",
+        "intent": "cancel_order",
+        "title": "SOP Pembatalan Pesanan yang Sudah Dikirim",
+        "trigger": "Customer request batal setelah status berubah menjadi dikirim",
+        "steps": [
+        "Langkah 1: Verifikasi data pesanan dan konfirmasi status pengiriman terkini melalui sistem tracking kurir JNE, JT, SiCepat, atau Gosend",
+        "Langkah 2: Jelaskan kepada pelanggan bahwa pembatalan langsung tidak dapat dilakukan karena paket sudah dalam perjalanan pengiriman",
+        "Langkah 3: Tawarkan solusi alternatif kepada pelanggan berupa proses retur setelah paket diterima sesuai ketentuan retur maksimal 7 hari",
+        "Langkah 4: Ingatkan pelanggan syarat retur yang berlaku yaitu produk masih tersegel, disertai bukti foto, dan label pengiriman asli",
+        "Langkah 5: Jika pelanggan menyetujui jalur retur, buat tiket retur dan eskalasikan ke supervisor untuk persetujuan proses refund setelah paket kembali",
+        "Langkah 6: Dokumentasikan seluruh percakapan dan keputusan yang disepakati dalam tiket untuk referensi supervisor yang menangani"
+        ],
+        "escalation_level": 2,
+        "escalation_condition": "Eskalasi ke level 3 jika nilai transaksi di atas Rp5.000.000 atau pelanggan mengancam akan melaporkan ke lembaga konsumen karena pembatalan tidak dapat diproses",
+        "estimated_resolution_time": "2-3 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    },
+    {
+        "doc_id": "sop-003",
+        "collection": "sop_escalation",
+        "intent": "track_order",
+        "title": "SOP Lacak Pesanan Tidak Update",
+        "trigger": "Resi tidak ada update lebih dari 3 hari kerja",
+        "steps": [
+        "Langkah 1: Minta nomor resi pengiriman dari pelanggan dan verifikasi status terkini di sistem tracking kurir yang digunakan yaitu JNE, JT, SiCepat, atau Gosend",
+        "Langkah 2: Periksa histori tracking secara lengkap dan identifikasi posisi terakhir paket yang tercatat di sistem kurir",
+        "Langkah 3: Hubungi pihak kurir terkait melalui jalur resmi mitra untuk meminta klarifikasi status paket yang tidak diperbarui lebih dari 3 hari kerja",
+        "Langkah 4: Informasikan kepada pelanggan hasil komunikasi dengan kurir beserta perkiraan waktu pembaruan status berikutnya",
+        "Langkah 5: Pantau status pengiriman selama 1x24 jam setelah koordinasi dengan kurir dan laporkan perkembangan kepada pelanggan",
+        "Langkah 6: Jika status tetap tidak diperbarui setelah koordinasi, eskalasikan tiket dan sarankan pelanggan untuk menunggu konfirmasi investigasi resmi"
+        ],
+        "escalation_level": 1,
+        "escalation_condition": "Eskalasi ke level 2 jika kurir tidak memberikan respons atau klarifikasi dalam 1 hari kerja setelah dihubungi oleh agen CS",
+        "estimated_resolution_time": "1-2 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    },
+    {
+        "doc_id": "sop-004",
+        "collection": "sop_escalation",
+        "intent": "track_order",
+        "title": "SOP Paket Hilang dalam Pengiriman",
+        "trigger": "Status pengiriman hilang atau tidak sampai lebih dari 7 hari",
+        "steps": [
+        "Langkah 1: Verifikasi nomor resi dan konfirmasi status terakhir paket di sistem kurir JNE, JT, SiCepat, atau Gosend, serta catat posisi terakhir yang tercatat",
+        "Langkah 2: Lakukan pengecekan menyeluruh di sistem internal platform untuk memastikan tidak ada kendala teknis yang memengaruhi status pengiriman",
+        "Langkah 3: Ajukan klaim investigasi kehilangan paket secara resmi kepada pihak kurir dan minta nomor tiket klaim sebagai referensi pelacakan",
+        "Langkah 4: Eskalasikan kasus kepada manajemen dengan melampirkan seluruh bukti tracking, nomor tiket klaim kurir, dan kronologi lengkap kejadian",
+        "Langkah 5: Informasikan kepada pelanggan bahwa kasus ditangani di level manajemen dan berikan estimasi waktu penyelesaian investigasi kurir",
+        "Langkah 6: Setelah investigasi selesai dan paket dikonfirmasi hilang, proses refund penuh atau pengiriman ulang sesuai persetujuan manajemen dan pilihan pelanggan",
+        "Langkah 7: Dokumentasikan seluruh kronologi kasus, bukti komunikasi dengan kurir, dan keputusan akhir manajemen dalam sistem tiket secara lengkap"
+        ],
+        "escalation_level": 3,
+        "escalation_condition": "Kasus ini secara langsung ditangani oleh manajemen, eskalasi tambahan dilakukan jika kurir menolak klaim kehilangan atau pelanggan mengajukan sengketa hukum",
+        "estimated_resolution_time": "5-7 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    },
+    {
+        "doc_id": "sop-005",
+        "collection": "sop_escalation",
+        "intent": "get_refund",
+        "title": "SOP Pengajuan Refund",
+        "trigger": "Customer mengajukan pengembalian dana setelah transaksi selesai",
+        "steps": [
+        "Langkah 1: Verifikasi identitas pelanggan dan data transaksi, pastikan alasan pengajuan refund sesuai dengan kebijakan yang berlaku di platform",
+        "Langkah 2: Periksa apakah transaksi termasuk kategori pengecualian refund yaitu produk flash sale, produk digital, atau produk makanan yang tidak dapat dikembalikan",
+        "Langkah 3: Jika refund disetujui, tanyakan metode pengembalian dana yang diinginkan pelanggan yaitu transfer bank atau saldo wallet",
+        "Langkah 4: Proses pengajuan refund di sistem dan catat metode yang dipilih beserta detail rekening atau wallet pelanggan yang valid",
+        "Langkah 5: Informasikan estimasi waktu refund kepada pelanggan yaitu 3 hari kerja untuk saldo wallet atau 5 hari kerja untuk transfer bank",
+        "Langkah 6: Kirimkan konfirmasi tertulis pengajuan refund kepada pelanggan melalui email atau chat dan dokumentasikan tiket sebagai selesai"
+        ],
+        "escalation_level": 1,
+        "escalation_condition": "Eskalasi ke level 2 jika pelanggan mengajukan refund untuk transaksi yang termasuk kategori pengecualian atau nominal refund tidak sesuai dengan nilai transaksi awal",
+        "estimated_resolution_time": "3-5 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    },
+    {
+        "doc_id": "sop-006",
+        "collection": "sop_escalation",
+        "intent": "get_refund",
+        "title": "SOP Refund Ditolak Penjual",
+        "trigger": "Penjual menolak pengajuan refund dari customer",
+        "steps": [
+        "Langkah 1: Verifikasi data pengajuan refund pelanggan di sistem dan catat alasan penolakan yang diberikan oleh penjual secara lengkap",
+        "Langkah 2: Evaluasi alasan penolakan penjual berdasarkan kebijakan platform, periksa apakah penolakan tersebut sesuai dengan ketentuan yang berlaku",
+        "Langkah 3: Jika penolakan penjual tidak sesuai kebijakan platform, hubungi penjual melalui jalur komunikasi resmi dan minta penjual meninjau ulang keputusannya",
+        "Langkah 4: Eskalasikan kasus kepada supervisor dengan melampirkan bukti pengajuan refund pelanggan, alasan penolakan penjual, dan hasil evaluasi kebijakan",
+        "Langkah 5: Supervisor melakukan mediasi antara pelanggan dan penjual untuk mencapai kesepakatan penyelesaian dalam waktu maksimal 2 hari kerja",
+        "Langkah 6: Jika mediasi menghasilkan persetujuan refund, proses pengembalian dana sesuai metode yang dipilih pelanggan dengan estimasi 3 hari kerja untuk saldo wallet atau 5 hari kerja untuk transfer bank",
+        "Langkah 7: Dokumentasikan hasil mediasi, keputusan akhir, dan tindak lanjut refund dalam tiket sebagai referensi penyelesaian kasus"
+        ],
+        "escalation_level": 2,
+        "escalation_condition": "Eskalasi ke level 3 jika penjual tetap menolak refund setelah mediasi supervisor atau pelanggan mengancam akan melaporkan kasus ke lembaga perlindungan konsumen",
+        "estimated_resolution_time": "2-4 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    },
+    {
+        "doc_id": "sop-007",
+        "collection": "sop_escalation",
+        "intent": "check_refund_policy",
+        "title": "SOP Edukasi Kebijakan Refund",
+        "trigger": "Customer tidak memahami syarat dan kondisi refund",
+        "steps": [
+        "Langkah 1: Sambut pelanggan dengan ramah dan identifikasi aspek kebijakan refund yang tidak dipahami berdasarkan pertanyaan atau keluhan yang disampaikan",
+        "Langkah 2: Jelaskan kepada pelanggan bahwa pengajuan refund harus dilakukan dalam batas waktu 7 hari sejak produk diterima disertai syarat produk masih tersegel, bukti foto, dan label pengiriman asli",
+        "Langkah 3: Sampaikan kategori produk yang tidak dapat diajukan refund yaitu produk dari flash sale, produk digital, dan produk makanan",
+        "Langkah 4: Informasikan metode refund yang tersedia kepada pelanggan yaitu pengembalian ke saldo wallet dengan estimasi 3 hari kerja atau transfer bank dengan estimasi 5 hari kerja",
+        "Langkah 5: Tanyakan kepada pelanggan apakah terdapat transaksi aktif yang ingin diajukan refund dan bantu pelanggan memeriksa kelayakan transaksi tersebut",
+        "Langkah 6: Pastikan pelanggan memahami seluruh informasi yang disampaikan dan tawarkan bantuan lanjutan jika pelanggan ingin langsung mengajukan refund"
+        ],
+        "escalation_level": 1,
+        "escalation_condition": "Eskalasi ke level 2 jika pelanggan tidak menerima penjelasan kebijakan dan tetap menuntut refund untuk transaksi yang termasuk kategori pengecualian",
+        "estimated_resolution_time": "1 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    },
+    {
+        "doc_id": "sop-008",
+        "collection": "sop_escalation",
+        "intent": "delivery_period",
+        "title": "SOP Estimasi Pengiriman Terlambat",
+        "trigger": "Pengiriman melewati estimasi lebih dari 2 hari kerja",
+        "steps": [
+        "Langkah 1: Verifikasi nomor resi dan cek status pengiriman terkini di sistem tracking kurir JNE, JT, SiCepat, atau Gosend yang digunakan untuk pesanan tersebut",
+        "Langkah 2: Identifikasi penyebab keterlambatan dari histori tracking kurir, perhatikan apakah terdapat kendala cuaca, volume paket tinggi, atau masalah operasional kurir",
+        "Langkah 3: Hubungi pihak kurir melalui jalur resmi mitra untuk meminta klarifikasi penyebab keterlambatan dan estimasi waktu pengiriman yang diperbarui",
+        "Langkah 4: Sampaikan permohonan maaf kepada pelanggan atas keterlambatan dan informasikan hasil koordinasi dengan kurir beserta estimasi waktu kedatangan terbaru",
+        "Langkah 5: Pantau status pengiriman setiap hari kerja dan berikan update proaktif kepada pelanggan jika terdapat perubahan status yang signifikan",
+        "Langkah 6: Jika paket tiba, konfirmasi penerimaan kepada pelanggan dan tanyakan apakah kondisi produk sesuai dengan pesanan"
+        ],
+        "escalation_level": 1,
+        "escalation_condition": "Eskalasi ke level 2 jika keterlambatan melebihi 5 hari kerja dari estimasi awal tanpa penjelasan valid dari kurir atau pelanggan meminta kompensasi atas keterlambatan",
+        "estimated_resolution_time": "1-3 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    },
+    {
+        "doc_id": "sop-009",
+        "collection": "sop_escalation",
+        "intent": "delivery_period",
+        "title": "SOP Pengiriman ke Daerah Terpencil",
+        "trigger": "Customer menanyakan pengiriman ke daerah non-reguler atau pelosok",
+        "steps": [
+        "Langkah 1: Tanyakan kepada pelanggan alamat tujuan pengiriman secara lengkap termasuk nama kecamatan, kabupaten, dan provinsi untuk keperluan pengecekan jangkauan kurir",
+        "Langkah 2: Periksa cakupan layanan masing-masing kurir mitra yaitu JNE, JT, SiCepat, dan Gosend untuk alamat tujuan yang diberikan pelanggan",
+        "Langkah 3: Informasikan kepada pelanggan kurir mana saja yang dapat melayani pengiriman ke daerah tersebut beserta estimasi waktu pengiriman yang berlaku",
+        "Langkah 4: Jika tidak ada kurir reguler yang menjangkau daerah tersebut, sampaikan informasi ini dengan jelas dan tawarkan alternatif pengiriman ke alamat terdekat yang terjangkau kurir",
+        "Langkah 5: Ingatkan pelanggan bahwa pengiriman ke daerah terpencil berpotensi memiliki biaya pengiriman lebih tinggi dan estimasi waktu yang lebih panjang dari pengiriman reguler",
+        "Langkah 6: Catat hasil pengecekan jangkauan dan keputusan pelanggan dalam sistem tiket sebagai referensi jika pelanggan menghubungi kembali"
+        ],
+        "escalation_level": 1,
+        "escalation_condition": "Eskalasi ke level 2 jika pelanggan mengajukan komplain bahwa daerahnya seharusnya dijangkau kurir namun tidak tersedia opsi pengiriman di halaman checkout",
+        "estimated_resolution_time": "1 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    },
+    {
+        "doc_id": "sop-010",
+        "collection": "sop_escalation",
+        "intent": "payment_issue",
+        "title": "SOP Pembayaran Gagal atau Pending",
+        "trigger": "Pembayaran tidak terkonfirmasi setelah lebih dari 1 jam",
+        "steps": [
+        "Langkah 1: Verifikasi data order pelanggan di sistem dan konfirmasi metode pembayaran yang digunakan yaitu transfer bank, kartu kredit, COD, dompet digital, atau paylater",
+        "Langkah 2: Periksa status pembayaran di sistem platform dan pastikan order masih dalam batas waktu pembayaran 24 jam sejak order dibuat",
+        "Langkah 3: Minta pelanggan mengirimkan bukti pembayaran berupa screenshot mutasi rekening, bukti transfer, atau notifikasi dari aplikasi dompet digital",
+        "Langkah 4: Koordinasikan dengan tim payment gateway menggunakan bukti yang diterima untuk melakukan pengecekan status transaksi di sistem mereka",
+        "Langkah 5: Jika pembayaran terkonfirmasi di payment gateway namun belum masuk sistem platform, minta tim teknis melakukan rekonsiliasi manual dan update status order",
+        "Langkah 6: Informasikan hasil pengecekan kepada pelanggan dan konfirmasi apakah order sudah berhasil diproses atau perlu dilakukan pembayaran ulang"
+        ],
+        "escalation_level": 1,
+        "escalation_condition": "Eskalasi ke level 2 jika rekonsiliasi manual tidak berhasil dalam 1 hari kerja, terdapat indikasi potongan ganda, atau saldo pelanggan terpotong namun order tidak terbuat di sistem",
+        "estimated_resolution_time": "1-2 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    },
+    {
+        "doc_id": "sop-011",
+        "collection": "sop_escalation",
+        "intent": "payment_issue",
+        "title": "SOP Double Payment",
+        "trigger": "Customer terkena double charge pada satu pesanan yang sama",
+        "steps": [
+        "Langkah 1: Verifikasi identitas pelanggan dan minta nomor order beserta bukti dua transaksi yang terpotong berupa screenshot mutasi rekening atau notifikasi dompet digital",
+        "Langkah 2: Periksa histori transaksi order di sistem platform dan konfirmasi apakah terdapat dua catatan pembayaran untuk nomor order yang sama",
+        "Langkah 3: Eskalasikan kasus ke supervisor dengan melampirkan bukti double charge dari pelanggan dan data transaksi dari sistem platform secara lengkap",
+        "Langkah 4: Supervisor berkoordinasi dengan tim payment gateway untuk memverifikasi dua transaksi yang masuk dan mengidentifikasi transaksi mana yang perlu direfund",
+        "Langkah 5: Setelah konfirmasi double charge terbukti, proses refund untuk transaksi kedua sesuai metode pembayaran asal dengan estimasi 3 hari kerja untuk saldo wallet atau 5 hari kerja untuk transfer bank",
+        "Langkah 6: Informasikan hasil penanganan kepada pelanggan beserta nomor referensi refund dan estimasi waktu dana kembali diterima"
+        ],
+        "escalation_level": 2,
+        "escalation_condition": "Eskalasi ke level 3 jika double charge terjadi pada nominal transaksi di atas Rp10.000.000 atau pelanggan mengalami double charge lebih dari dua kali dalam periode yang sama",
+        "estimated_resolution_time": "2-3 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    },
+    {
+        "doc_id": "sop-012",
+        "collection": "sop_escalation",
+        "intent": "check_voucher",
+        "title": "SOP Voucher Tidak Berlaku",
+        "trigger": "Voucher gagal diaplikasikan saat proses checkout",
+        "steps": [
+        "Langkah 1: Tanyakan kode voucher yang digunakan pelanggan dan periksa status voucher tersebut di sistem termasuk masa berlaku, minimum pembelian, dan kategori produk yang tercakup",
+        "Langkah 2: Verifikasi apakah total belanja pelanggan memenuhi syarat minimum pembelian, pastikan nilai transaksi sudah mencapai Rp100.000 atau syarat minimum voucher yang berlaku",
+        "Langkah 3: Periksa apakah produk yang dibeli pelanggan termasuk dalam kategori yang dikecualikan dari penggunaan voucher seperti produk flash sale atau produk digital",
+        "Langkah 4: Jika voucher valid dan produk memenuhi syarat namun tetap gagal diterapkan, catat detail error yang muncul di layar pelanggan dan laporkan ke tim teknis",
+        "Langkah 5: Informasikan hasil pengecekan kepada pelanggan secara jelas, jika voucher memang tidak berlaku jelaskan alasannya dan tawarkan informasi voucher aktif lain yang dapat digunakan",
+        "Langkah 6: Dokumentasikan kode voucher yang bermasalah dan detail laporan ke tim teknis dalam tiket untuk keperluan investigasi dan perbaikan sistem"
+        ],
+        "escalation_level": 1,
+        "escalation_condition": "Eskalasi ke level 2 jika voucher dipastikan valid dan memenuhi semua syarat namun sistem terus menolak penerapannya, atau jika pelanggan sudah melewatkan promo terbatas akibat kegagalan sistem",
+        "estimated_resolution_time": "1 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    },
+    {
+        "doc_id": "sop-013",
+        "collection": "sop_escalation",
+        "intent": "seller_complaint",
+        "title": "SOP Komplain terhadap Penjual",
+        "trigger": "Customer mengajukan komplain terhadap perilaku atau produk penjual",
+        "steps": [
+        "Langkah 1: Dengarkan keluhan pelanggan secara penuh tanpa memotong, catat kronologi kejadian dan jenis komplain yang diajukan terhadap penjual",
+        "Langkah 2: Verifikasi data transaksi antara pelanggan dan penjual yang bersangkutan di sistem untuk memastikan adanya hubungan transaksi yang valid",
+        "Langkah 3: Kategorikan jenis komplain apakah terkait produk yang tidak sesuai, komunikasi penjual yang tidak profesional, atau pelanggaran kebijakan platform lainnya",
+        "Langkah 4: Minta pelanggan melampirkan bukti pendukung seperti screenshot percakapan dengan penjual, foto produk, atau bukti lain yang relevan dengan komplain yang diajukan",
+        "Langkah 5: Eskalasikan laporan komplain beserta seluruh bukti kepada supervisor untuk dilakukan investigasi terhadap penjual yang bersangkutan",
+        "Langkah 6: Informasikan kepada pelanggan bahwa komplain sedang ditindaklanjuti dan berikan estimasi waktu penyelesaian investigasi kepada pelanggan"
+        ],
+        "escalation_level": 2,
+        "escalation_condition": "Eskalasi ke level 3 jika komplain mengindikasikan penipuan sistematis oleh penjual, terdapat banyak pelanggan dengan keluhan serupa terhadap penjual yang sama, atau kasus berpotensi masuk ranah hukum",
+        "estimated_resolution_time": "3-5 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    },
+    {
+        "doc_id": "sop-014",
+        "collection": "sop_escalation",
+        "intent": "seller_complaint",
+        "title": "SOP Barang Tidak Sesuai Deskripsi",
+        "trigger": "Produk yang diterima customer berbeda dari deskripsi listing",
+        "steps": [
+        "Langkah 1: Verifikasi data pesanan pelanggan dan akses halaman listing produk yang dibeli untuk memeriksa deskripsi, foto, dan spesifikasi yang tercantum saat pembelian",
+        "Langkah 2: Minta pelanggan mengirimkan foto produk yang diterima dari berbagai sudut untuk dibandingkan secara langsung dengan deskripsi dan foto yang ada di listing penjual",
+        "Langkah 3: Periksa tanggal penerimaan produk dan pastikan pelaporan dilakukan dalam batas waktu retur 7 hari sejak produk diterima pelanggan",
+        "Langkah 4: Jika terbukti terdapat ketidaksesuaian signifikan antara produk dan deskripsi listing, setujui pengajuan retur dan buat tiket retur prioritas untuk pelanggan",
+        "Langkah 5: Eskalasikan laporan ketidaksesuaian produk kepada supervisor disertai bukti foto perbandingan untuk dilakukan tindakan evaluasi terhadap akun penjual",
+        "Langkah 6: Informasikan kepada pelanggan proses retur yang harus dilakukan menggunakan kurir JNE, JT, SiCepat, atau Gosend dan estimasi refund setelah produk diterima gudang"
+        ],
+        "escalation_level": 2,
+        "escalation_condition": "Eskalasi ke level 3 jika penjual terbukti secara sistematis mencantumkan deskripsi produk yang menyesatkan atau kasus melibatkan produk palsu yang menggunakan merek resmi tanpa izin",
+        "estimated_resolution_time": "2-4 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    },
+    {
+        "doc_id": "sop-015",
+        "collection": "sop_escalation",
+        "intent": "escalate_to_human",
+        "title": "SOP Eskalasi ke Agen Senior",
+        "trigger": "Bot tidak dapat menyelesaikan masalah setelah 2 kali percobaan",
+        "steps": [
+        "Langkah 1: Identifikasi bahwa sistem otomatis telah melakukan dua kali percobaan penyelesaian namun masalah pelanggan belum berhasil diselesaikan",
+        "Langkah 2: Sampaikan permohonan maaf kepada pelanggan atas ketidaknyamanan yang dialami dan informasikan bahwa percakapan akan diteruskan kepada agen CS senior",
+        "Langkah 3: Susun ringkasan percakapan secara lengkap mencakup jenis masalah, langkah penyelesaian yang sudah dicoba, dan respons pelanggan selama interaksi berlangsung",
+        "Langkah 4: Transfer tiket beserta seluruh riwayat percakapan dan ringkasan masalah kepada agen CS senior yang bertugas pada jam layanan 08.00 hingga 21.00 setiap hari",
+        "Langkah 5: Informasikan kepada pelanggan estimasi waktu respons dari agen senior dan pastikan pelanggan mengetahui nomor tiket yang dapat digunakan sebagai referensi",
+        "Langkah 6: Agen senior mengambil alih penanganan, mempelajari riwayat tiket secara menyeluruh, dan menghubungi pelanggan untuk memulai proses penyelesaian dari awal"
+        ],
+        "escalation_level": 2,
+        "escalation_condition": "Eskalasi ke level 3 jika agen senior juga tidak dapat menyelesaikan masalah dalam 1 hari kerja atau pelanggan menyampaikan ancaman pelaporan ke otoritas terkait",
+        "estimated_resolution_time": "1-2 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    },
+    {
+        "doc_id": "sop-016",
+        "collection": "sop_escalation",
+        "intent": "escalate_to_human",
+        "title": "SOP Eskalasi ke Manajemen",
+        "trigger": "Kasus sensitif, customer VIP, atau mengandung ancaman hukum",
+        "steps": [
+        "Langkah 1: Identifikasi kategori kasus yang masuk yaitu pelanggan VIP, kasus mengandung ancaman hukum, atau kasus sensitif yang berpotensi berdampak pada reputasi platform",
+        "Langkah 2: Hentikan seluruh upaya penyelesaian di level agen dan supervisor, pastikan tidak ada keputusan sepihak yang diambil sebelum manajemen dilibatkan",
+        "Langkah 3: Susun laporan kasus secara komprehensif mencakup identitas pelanggan, kronologi lengkap, bukti pendukung, dan potensi dampak hukum atau reputasi yang mungkin timbul",
+        "Langkah 4: Kirimkan laporan kepada tim manajemen melalui jalur eskalasi resmi dan tandai tiket dengan prioritas kritis agar segera mendapatkan perhatian",
+        "Langkah 5: Sampaikan kepada pelanggan bahwa kasus ditangani langsung oleh pihak manajemen dan berikan jaminan bahwa penyelesaian akan diprioritaskan dalam waktu sesingkat mungkin",
+        "Langkah 6: Manajemen menghubungi pelanggan secara langsung melalui saluran komunikasi yang telah ditetapkan dan memimpin proses penyelesaian hingga kasus dinyatakan selesai",
+        "Langkah 7: Dokumentasikan seluruh keputusan manajemen, komunikasi dengan pelanggan, dan tindak lanjut akhir dalam sistem tiket sebagai arsip penanganan kasus kritis"
+        ],
+        "escalation_level": 3,
+        "escalation_condition": "Kasus ini merupakan eskalasi tertinggi dan ditangani langsung oleh manajemen, tidak ada eskalasi lebih lanjut kecuali penyelesaian memerlukan keterlibatan pihak hukum eksternal atau regulator",
+        "estimated_resolution_time": "1-3 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    },
+    {
+        "doc_id": "sop-017",
+        "collection": "sop_escalation",
+        "intent": "complaint",
+        "title": "SOP Penanganan Komplain Emosional",
+        "trigger": "Customer sangat marah atau menggunakan bahasa tidak sopan",
+        "steps": [
+        "Langkah 1: Tetap tenang dan profesional, biarkan pelanggan menyampaikan keluhan hingga selesai tanpa memotong pembicaraan meskipun pelanggan menggunakan bahasa yang tidak sopan",
+        "Langkah 2: Sampaikan empati secara tulus kepada pelanggan dengan mengakui bahwa situasi yang dialami memang menyulitkan dan jelaskan bahwa agen siap membantu menyelesaikan masalah",
+        "Langkah 3: Identifikasi inti permasalahan yang menjadi sumber emosi pelanggan dan pisahkan antara ekspresi emosi pelanggan dengan masalah teknis yang perlu diselesaikan",
+        "Langkah 4: Fokuskan percakapan pada solusi konkret yang dapat ditawarkan, sampaikan langkah penyelesaian yang jelas dan realistis sesuai kebijakan platform yang berlaku",
+        "Langkah 5: Jika pelanggan terus menggunakan bahasa kasar setelah dua kali upaya deeskalasi, informasikan dengan sopan bahwa komunikasi yang saling menghormati diperlukan agar penanganan dapat dilanjutkan",
+        "Langkah 6: Dokumentasikan kondisi emosional pelanggan, upaya deeskalasi yang dilakukan, dan solusi yang ditawarkan dalam tiket sebagai catatan penanganan"
+        ],
+        "escalation_level": 1,
+        "escalation_condition": "Eskalasi ke level 2 jika pelanggan tetap tidak dapat ditenangkan setelah tiga kali upaya deeskalasi atau pelanggan secara eksplisit menyampaikan ancaman terhadap agen maupun platform",
+        "estimated_resolution_time": "1 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    },
+    {
+        "doc_id": "sop-018",
+        "collection": "sop_escalation",
+        "intent": "return_request",
+        "title": "SOP Return Produk Rusak",
+        "trigger": "Produk diterima customer dalam kondisi rusak atau cacat",
+        "steps": [
+        "Langkah 1: Verifikasi tanggal penerimaan produk di sistem dan pastikan laporan kerusakan disampaikan dalam batas waktu 7 hari sejak produk diterima pelanggan",
+        "Langkah 2: Minta pelanggan mengirimkan foto atau video yang menunjukkan kerusakan produk secara jelas beserta kondisi kemasan pengiriman saat diterima",
+        "Langkah 3: Periksa apakah produk termasuk kategori pengecualian retur yaitu flash sale, produk digital, atau produk makanan yang tidak dapat diproses returnya",
+        "Langkah 4: Jika produk memenuhi syarat retur, buat tiket retur prioritas dan eskalasikan ke supervisor untuk persetujuan proses pengembalian produk rusak",
+        "Langkah 5: Informasikan kepada pelanggan prosedur pengiriman retur menggunakan kurir JNE, JT, SiCepat, atau Gosend dan pastikan produk dikemas dengan baik sebelum dikirim kembali",
+        "Langkah 6: Setelah produk rusak diterima gudang dan diverifikasi, proses refund penuh atau pengiriman produk pengganti sesuai pilihan pelanggan dalam estimasi 3 hari kerja untuk saldo wallet atau 5 hari kerja untuk transfer bank"
+        ],
+        "escalation_level": 2,
+        "escalation_condition": "Eskalasi ke level 3 jika kerusakan produk diduga terjadi akibat kelalaian kurir dan pelanggan menuntut ganti rugi di luar nilai transaksi, atau penjual menolak bertanggung jawab atas kerusakan yang terjadi",
+        "estimated_resolution_time": "2-4 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    },
+    {
+        "doc_id": "sop-019",
+        "collection": "sop_escalation",
+        "intent": "return_request",
+        "title": "SOP Return Produk Salah Kirim",
+        "trigger": "Customer menerima produk yang berbeda dari yang dipesan",
+        "steps": [
+        "Langkah 1: Verifikasi detail pesanan pelanggan di sistem dan bandingkan spesifikasi produk yang dipesan dengan produk yang dilaporkan diterima oleh pelanggan",
+        "Langkah 2: Minta pelanggan mengirimkan foto produk yang diterima termasuk label produk, kemasan, dan isi produk untuk memastikan adanya kesalahan pengiriman dari penjual",
+        "Langkah 3: Konfirmasi kesalahan pengiriman berdasarkan bukti foto yang diterima dan pastikan pelaporan dilakukan dalam batas waktu 7 hari sejak produk diterima",
+        "Langkah 4: Buat tiket retur prioritas dan eskalasikan ke supervisor, laporkan kesalahan pengiriman kepada penjual yang bersangkutan melalui jalur komunikasi resmi platform",
+        "Langkah 5: Koordinasikan dengan penjual untuk pengiriman produk yang benar kepada pelanggan menggunakan kurir JNE, JT, SiCepat, atau Gosend tanpa biaya tambahan kepada pelanggan",
+        "Langkah 6: Jika pelanggan memilih refund dibanding produk pengganti, proses pengembalian dana penuh dalam estimasi 3 hari kerja untuk saldo wallet atau 5 hari kerja untuk transfer bank",
+        "Langkah 7: Dokumentasikan bukti kesalahan pengiriman dan tindak lanjut terhadap penjual dalam tiket untuk evaluasi performa penjual di platform"
+        ],
+        "escalation_level": 2,
+        "escalation_condition": "Eskalasi ke level 3 jika penjual menolak mengakui kesalahan pengiriman meskipun bukti foto sudah valid, atau penjual tidak merespons laporan kesalahan dalam 2 hari kerja",
+        "estimated_resolution_time": "2-4 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    },
+    {
+        "doc_id": "sop-020",
+        "collection": "sop_escalation",
+        "intent": "cod_payment",
+        "title": "SOP Penolakan Paket COD",
+        "trigger": "Customer menolak menerima paket COD saat kurir tiba di lokasi",
+        "steps": [
+        "Langkah 1: Terima laporan penolakan paket COD dari kurir atau pelanggan dan identifikasi alasan pelanggan menolak menerima paket pada saat pengiriman",
+        "Langkah 2: Hubungi pelanggan untuk mengklarifikasi alasan penolakan, apakah disebabkan oleh perubahan pikiran, ketidaksesuaian produk, kendala dana, atau alasan lain yang valid",
+        "Langkah 3: Jelaskan kepada pelanggan konsekuensi penolakan paket COD sesuai kebijakan platform termasuk kemungkinan biaya pengembalian paket dan status order yang akan dibatalkan",
+        "Langkah 4: Jika pelanggan menolak karena alasan valid seperti dugaan produk tidak sesuai, tawarkan opsi menerima paket terlebih dahulu kemudian mengajukan retur dalam batas waktu 7 hari",
+        "Langkah 5: Koordinasikan dengan kurir untuk proses pengembalian paket ke gudang penjual dan catat status penolakan beserta alasan resmi dalam sistem tiket",
+        "Langkah 6: Informasikan kepada penjual mengenai penolakan paket dan pastikan status order diperbarui di sistem platform sesuai dengan hasil penanganan yang disepakati"
+        ],
+        "escalation_level": 1,
+        "escalation_condition": "Eskalasi ke level 2 jika pelanggan menolak paket COD berulang kali untuk penjual yang sama tanpa alasan valid, atau terdapat indikasi penyalahgunaan metode COD yang merugikan penjual",
+        "estimated_resolution_time": "1-2 hari kerja",
+        "language": "id",
+        "updated_at": "2025-01-01"
+    }
+
+
+
+
+  ]
+}
