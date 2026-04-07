@@ -21,15 +21,15 @@ shared_embeddings = HuggingFaceEmbeddings(
 print("Model loaded.")
 
 ingestors = [
-    SOPIngestor(URL, API_KEY, embeddings=shared_embeddings),
-    FAQIngestor(URL, API_KEY, embeddings=shared_embeddings),
-    TicketIngestor(URL, API_KEY, embeddings=shared_embeddings),
-    PromoIngestor(URL, API_KEY, embeddings=shared_embeddings),
-    ProductIngestor(URL, API_KEY, embeddings=shared_embeddings),
+    (SOPIngestor(URL, API_KEY, embeddings=shared_embeddings),     False),
+    (FAQIngestor(URL, API_KEY, embeddings=shared_embeddings),     False),
+    (TicketIngestor(URL, API_KEY, embeddings=shared_embeddings),  True),
+    (PromoIngestor(URL, API_KEY, embeddings=shared_embeddings),   True),
+    (ProductIngestor(URL, API_KEY, embeddings=shared_embeddings), True),
 ]
 
-for ingestor in ingestors:
+for ingestor, recreate in ingestors:
     print(f"\n{'='*50}")
-    print(f"Ingesting: {ingestor.collection_name}")
+    print(f"Ingesting: {ingestor.collection_name} (recreate={recreate})")
     print(f"{'='*50}")
-    ingestor.ingest(recreate=False)
+    ingestor.ingest(recreate=recreate)

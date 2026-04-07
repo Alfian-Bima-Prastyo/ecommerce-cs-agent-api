@@ -1,10 +1,6 @@
-"""
-Ingestor for product_catalog collections.
-Embedded text: name + category + description + tags
-"""
-
 import argparse
 from knowledge_base.ingestion.base_ingestor import BaseIngestor
+from qdrant_client.models import PayloadSchemaType
 
 class ProductIngestor(BaseIngestor):
     def __init__(self, qdrant_url, qdrant_api_key ,embeddings=None):
@@ -40,9 +36,17 @@ class ProductIngestor(BaseIngestor):
             "seller":      doc["seller"],
             "rating":      doc["rating"],
             "tags":        doc["tags"],
+            "stock":       doc.get("stock", {}),
             "language":    doc["language"],
             "updated_at":  doc["updated_at"],
         }
+    
+    def create_payload_indexes(self):
+        self.client.create_payload_index(
+            collection_name=self.collection_name,
+            field_name="product_id",
+            field_schema=PayloadSchemaType.KEYWORD,
+        )
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

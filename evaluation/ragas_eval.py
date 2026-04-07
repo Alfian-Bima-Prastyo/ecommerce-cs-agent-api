@@ -1,7 +1,3 @@
-"""
-RAGAS evaluation for Agentic RAG pipeline.
-Metrics: faithfulness, answer_relevancy, context_precision, context_recall
-"""
 import os
 import sys
 from pathlib import Path

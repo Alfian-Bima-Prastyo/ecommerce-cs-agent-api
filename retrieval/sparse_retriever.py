@@ -1,7 +1,3 @@
-"""
-Sparse retrieval uses BM25.
-BM25 is built from an existing document payload in Qdrant.
-"""
 from rank_bm25 import BM25Okapi
 from qdrant_client import QdrantClient
 import re

@@ -1,6 +1,3 @@
-"""
-Base agent — shared logic for all agent.
-"""
 import os
 from langchain_groq import ChatGroq
 from retrieval.hybrid_retriever import HybridRetriever
@@ -15,7 +12,7 @@ class BaseAgent:
         self.retriever = retriever
         self.top_k     = top_k
         self.llm       = ChatGroq(
-            model=model or os.getenv("GROQ_MODEL", "llama-3.1-8b-instant"),
+            model=model or os.getenv("GROQ_MODEL", "meta-llama/llama-4-scout-17b-16e-instruct"),
             api_key=os.getenv("GROQ_API_KEY"),
             temperature=0.3,
         )
@@ -43,10 +40,6 @@ class BaseAgent:
         raise NotImplementedError
 
     def run(self, query: str, intent_filter: str = None) -> dict:
-        """
-        Main method: retrieve + generate.
-        Returns dict: {answer, sources, confidence}
-        """
         results = self.retriever.retrieve(
             query=query,
             agent=self.agent_name,

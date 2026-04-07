@@ -1,10 +1,6 @@
-"""
-Ingestor for ticket_history collections.
-Embedded text: issue + resolution + root_cause
-"""
-
 import argparse
 from knowledge_base.ingestion.base_ingestor import BaseIngestor
+from qdrant_client.models import PayloadSchemaType
 
 class TicketIngestor(BaseIngestor):
     def __init__(self, qdrant_url, qdrant_api_key ,embeddings=None):
@@ -20,8 +16,8 @@ class TicketIngestor(BaseIngestor):
         return f"{doc['issue']} {doc['resolution']} {doc['root_cause']}"
 
     def build_payload(self, doc: dict) -> dict:
-        intents         = doc.get("intents", [])
-        primary_intent  = next(
+        intents           = doc.get("intents", [])
+        primary_intent    = next(
             (i["intent"] for i in intents if i.get("primary")), None
         )
         secondary_intents = [
@@ -40,9 +36,21 @@ class TicketIngestor(BaseIngestor):
             "root_cause":        doc["root_cause"],
             "escalated":         doc["escalated"],
             "resolved_in":       doc["resolved_in"],
+            "ticket_id":         doc.get("ticket_id", ""),
+            "order_id":          doc.get("order_id", ""),
+            "assigned_to":       doc.get("assigned_to", ""),
+            "status":            doc.get("status", ""),
             "language":          doc["language"],
             "updated_at":        doc["updated_at"],
         }
+    
+    def create_payload_indexes(self):
+        for field in ["order_id", "ticket_id", "customer_name"]:
+            self.client.create_payload_index(
+                collection_name=self.collection_name,
+                field_name=field,
+                field_schema=PayloadSchemaType.KEYWORD,
+            )
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

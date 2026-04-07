@@ -1,6 +1,3 @@
-"""
-Hybrid retrieval: Dense + Sparse + RRF Fusion + Re-ranker.
-"""
 from qdrant_client import QdrantClient
 from langchain_huggingface import HuggingFaceEmbeddings
 from retrieval.dense_retriever  import DenseRetriever

@@ -1,10 +1,6 @@
-"""
-Ingestor for promo_voucher collections.
-Embedded text: code + description + terms
-"""
-
 import argparse
 from knowledge_base.ingestion.base_ingestor import BaseIngestor
+from qdrant_client.models import PayloadSchemaType
 
 class PromoIngestor(BaseIngestor):
     def __init__(self, qdrant_url, qdrant_api_key ,embeddings=None):
@@ -31,9 +27,20 @@ class PromoIngestor(BaseIngestor):
             "min_purchase": doc["min_purchase"],
             "valid_until":  doc["valid_until"],
             "terms":        doc["terms"],
+            "is_active":    doc.get("is_active", True),
+            "used":         doc.get("used", 0),
+            "quota":        doc.get("quota", 0),
             "language":     doc["language"],
             "updated_at":   doc["updated_at"],
         }
+    
+    def create_payload_indexes(self):
+        for field in ["code", "is_active"]:
+            self.client.create_payload_index(
+                collection_name=self.collection_name,
+                field_name=field,
+                field_schema=PayloadSchemaType.KEYWORD,
+            )
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

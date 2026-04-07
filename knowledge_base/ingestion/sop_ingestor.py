@@ -1,8 +1,3 @@
-"""
-Ingestor for sop_escalation collections.
-Embedded text: title + trigger + steps
-"""
-
 import argparse
 from knowledge_base.ingestion.base_ingestor import BaseIngestor
 

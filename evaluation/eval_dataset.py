@@ -1,7 +1,3 @@
-"""
-Generate RAGAS evaluation dataset from synthetic data.
-Format: question, answer (generated), contexts, ground_truth
-"""
 import json
 import random
 from pathlib import Path

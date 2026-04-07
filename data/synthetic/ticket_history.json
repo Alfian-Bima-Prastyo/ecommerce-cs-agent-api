@@ -2,856 +2,1355 @@
   "collection": "ticket_history",
   "total": 50,
   "documents": [
-  {
-    "doc_id": "ticket-001",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "cancel_order", "primary": true},
-      {"intent": "get_refund", "primary": false}
-    ],
-    "category": "pembatalan",
-    "issue": "Pesanan ingin dibatalkan sebelum barang dikirimkan oleh penjual. Permintaan refund diajukan ke saldo dompet digital.",
-    "resolution": "Pembatalan pesanan berhasil diproses karena status pesanan masih dalam tahap konfirmasi penjual. Refund sejumlah nilai pesanan dijadwalkan masuk ke saldo dompet digital dalam 3 hari kerja sesuai kebijakan platform.",
-    "root_cause": "Pelanggan mengubah keputusan pembelian sebelum pesanan memasuki proses pengiriman.",
-    "escalated": false,
-    "resolved_in": "2 jam",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-002",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "cancel_order", "primary": true},
-      {"intent": "get_refund", "primary": false}
-    ],
-    "category": "pembatalan",
-    "issue": "Pembatalan pesanan diajukan setelah barang sudah dalam proses pengiriman oleh kurir JNE. Permintaan refund turut disampaikan bersamaan dengan pengajuan pembatalan.",
-    "resolution": "Agen mengarahkan pelanggan untuk menolak paket saat tiba dan melakukan pengajuan retur melalui aplikasi dengan menyertakan bukti foto serta label pengiriman asli. Setelah paket dikonfirmasi diterima kembali oleh penjual, proses refund ke rekening bank akan diselesaikan dalam 5 hari kerja. Kasus dieskalasi ke tim logistik untuk koordinasi penarikan paket bersama kurir.",
-    "root_cause": "Permintaan pembatalan diajukan setelah pesanan telah diserahkan kepada mitra kurir sehingga memerlukan proses retur fisik.",
-    "escalated": true,
-    "resolved_in": "2 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-003",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "cancel_order", "primary": true},
-      {"intent": "payment_issue", "primary": false}
-    ],
-    "category": "pembatalan",
-    "issue": "Pesanan tidak dapat dilanjutkan karena batas waktu pembayaran telah lewat dan status pesanan otomatis dibatalkan oleh sistem. Pelanggan meminta konfirmasi pembatalan dan penjelasan mengenai status dana.",
-    "resolution": "Agen mengonfirmasi bahwa pesanan telah dibatalkan secara otomatis oleh sistem akibat melewati batas waktu pembayaran 24 jam. Karena pembayaran tidak berhasil diselesaikan, tidak ada dana yang masuk sehingga tidak diperlukan proses refund. Pelanggan disarankan untuk membuat pesanan baru dan menyelesaikan pembayaran sebelum batas waktu yang ditentukan.",
-    "root_cause": "Pelanggan tidak menyelesaikan pembayaran dalam batas waktu 24 jam setelah pesanan dibuat sehingga sistem membatalkan pesanan secara otomatis.",
-    "escalated": false,
-    "resolved_in": "1 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-004",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "cancel_order", "primary": true},
-      {"intent": "get_refund", "primary": false}
-    ],
-    "category": "pembatalan",
-    "issue": "Pelanggan menyadari telah memilih ukuran produk yang keliru saat melakukan pemesanan dan mengajukan pembatalan sebelum pesanan diproses oleh penjual. Refund diminta kembali ke metode pembayaran asal.",
-    "resolution": "Pembatalan berhasil diproses karena pesanan masih berada pada status menunggu konfirmasi penjual. Dana refund akan dikembalikan ke saldo dompet digital dalam 3 hari kerja sesuai kebijakan platform. Pelanggan disarankan untuk melakukan pemesanan ulang dengan memilih ukuran yang sesuai.",
-    "root_cause": "Kesalahan pemilihan atribut produk oleh pelanggan pada saat proses checkout sebelum pesanan diverifikasi penjual.",
-    "escalated": false,
-    "resolved_in": "3 jam",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-005",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "cancel_order", "primary": true},
-      {"intent": "seller_complaint", "primary": false}
-    ],
-    "category": "pembatalan",
-    "issue": "Penjual tidak memberikan respons maupun memproses pesanan selama lebih dari 2 hari sehingga pelanggan mengajukan pembatalan dan melaporkan ketidakresponsifan penjual kepada tim platform.",
-    "resolution": "Agen memverifikasi riwayat aktivitas penjual dan mengonfirmasi bahwa pesanan memang belum diproses dalam rentang waktu yang melebihi standar operasional. Pembatalan disetujui dan proses refund ke rekening bank dijadwalkan selesai dalam 5 hari kerja. Kasus dieskalasi ke tim penjual untuk pemberian peringatan dan evaluasi performa toko sesuai kebijakan platform.",
-    "root_cause": "Penjual tidak memproses pesanan dalam batas waktu yang ditetapkan platform sehingga menyebabkan keterlambatan operasional dan ketidakpuasan pelanggan.",
-    "escalated": true,
-    "resolved_in": "3 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-006",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "track_order", "primary": true},
-      {"intent": "delivery_period", "primary": false}
-    ],
-    "category": "pengiriman",
-    "issue": "Nomor resi tidak menunjukkan pembaruan status selama 3 hari berturut-turut sejak pesanan diserahkan ke kurir SiCepat. Pelanggan mempertanyakan keberadaan paket dan estimasi waktu kedatangan.",
-    "resolution": "Agen melakukan pengecekan langsung ke pihak kurir dan menemukan bahwa paket mengalami penundaan akibat penumpukan volume kiriman di gudang transit kurir. Kurir mengonfirmasi paket dalam kondisi aman dan pembaruan resi akan aktif kembali dalam 1x24 jam. Pelanggan diberikan informasi estimasi pengiriman terbaru dan diminta memantau status resi secara berkala.",
-    "root_cause": "Penumpukan volume paket di gudang operasional kurir menyebabkan keterlambatan pemindaian dan pembaruan status resi.",
-    "escalated": false,
-    "resolved_in": "1 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-007",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "track_order", "primary": true},
-      {"intent": "get_refund", "primary": false}
-    ],
-    "category": "pengiriman",
-    "issue": "Paket tidak kunjung tiba dalam waktu yang jauh melampaui estimasi pengiriman dan status resi berhenti pada titik transit tertentu tanpa pembaruan lebih lanjut. Pelanggan meminta investigasi keberadaan paket dan pengajuan refund.",
-    "resolution": "Agen mengajukan klaim investigasi resmi kepada pihak kurir JNE dan setelah proses penelusuran selesai, kurir menyatakan paket dinyatakan hilang dalam jaringan pengiriman. Kasus dieskalasi ke tim klaim untuk pemrosesan refund penuh senilai harga produk dan ongkos kirim ke rekening bank pelanggan dalam 5 hari kerja. Laporan insiden diteruskan ke divisi mitra logistik untuk tindak lanjut internal.",
-    "root_cause": "Paket mengalami kehilangan dalam jaringan distribusi kurir yang dikonfirmasi melalui proses investigasi resmi pihak logistik.",
-    "escalated": true,
-    "resolved_in": "5 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-008",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "track_order", "primary": true},
-      {"intent": "delivery_period", "primary": false}
-    ],
-    "category": "pengiriman",
-    "issue": "Status pengiriman terhenti di kota transit selama lebih dari 2 hari tanpa ada perpindahan ke tahap pengiriman berikutnya. Pelanggan mempertanyakan apakah paket masih dalam proses pengiriman menuju kota tujuan.",
-    "resolution": "Agen berkoordinasi langsung dengan pihak kurir J&T untuk menelusuri keberadaan paket di kota transit. Kurir mengonfirmasi paket telah ditemukan dan sedang dalam proses pengiriman ke kota tujuan dengan estimasi tiba dalam 1-2 hari kerja berikutnya. Status resi diperbarui setelah koordinasi selesai dan pelanggan diberikan notifikasi perkembangan terkini.",
-    "root_cause": "Keterlambatan pemindaian paket di titik transit antarkota menyebabkan status pengiriman tidak diperbarui secara real-time pada sistem pelacakan.",
-    "escalated": false,
-    "resolved_in": "4 jam",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-009",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "track_order", "primary": true},
-      {"intent": "delivery_period", "primary": false}
-    ],
-    "category": "pengiriman",
-    "issue": "Kurir melaporkan bahwa alamat tujuan pengiriman tidak dapat ditemukan sehingga paket dikembalikan ke kantor kurir terdekat. Pelanggan mempertanyakan status paket dan langkah selanjutnya agar paket dapat diterima.",
-    "resolution": "Agen menghubungi pelanggan untuk verifikasi dan konfirmasi ulang detail alamat pengiriman secara lengkap termasuk patokan lokasi yang jelas. Informasi alamat yang telah diperbarui diteruskan kepada pihak kurir SiCepat untuk dilakukan upaya pengiriman ulang pada hari kerja berikutnya. Pelanggan diminta memastikan ketersediaan penerima pada rentang waktu pengiriman yang telah dijadwalkan.",
-    "root_cause": "Alamat pengiriman yang tercatat pada label paket tidak cukup detail sehingga kurir tidak dapat menemukan lokasi tujuan saat proses pengantaran.",
-    "escalated": false,
-    "resolved_in": "2 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-010",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "track_order", "primary": true},
-      {"intent": "complaint", "primary": false}
-    ],
-    "category": "pengiriman",
-    "issue": "Status resi menunjukkan paket telah berhasil diterima namun pelanggan menyatakan tidak pernah menerima paket tersebut di lokasi pengiriman. Pelanggan mengajukan keberatan dan meminta investigasi segera.",
-    "resolution": "Agen mencatat laporan ketidaksesuaian status pengiriman dan mengajukan klaim investigasi resmi kepada kurir Gosend untuk penelusuran bukti pengiriman termasuk foto dan tanda terima. Kasus dieskalasi ke tim penanganan sengketa karena adanya indikasi kesalahan konfirmasi pengiriman oleh kurir. Selama proses investigasi berlangsung, pelanggan diberikan pembaruan status setiap hari kerja hingga keputusan akhir ditetapkan.",
-    "root_cause": "Kurir menandai status pengiriman sebagai terselesaikan tanpa memastikan paket diterima langsung oleh penerima yang sah di alamat tujuan.",
-    "escalated": true,
-    "resolved_in": "3 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-011",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "get_refund", "primary": true},
-      {"intent": "return_request", "primary": false}
-    ],
-    "category": "refund",
-    "issue": "Produk yang diterima dalam kondisi rusak sehingga pelanggan mengajukan permintaan retur dan refund penuh atas pembelian tersebut. Bukti kerusakan telah disertakan dalam bentuk foto produk beserta kemasan asli.",
-    "resolution": "Agen memverifikasi kelengkapan dokumen retur yang dikirimkan pelanggan dan menyetujui pengajuan karena memenuhi seluruh syarat kebijakan retur platform. Setelah paket retur dikonfirmasi diterima oleh penjual, proses refund penuh diinisiasi dan dana dijadwalkan masuk ke saldo dompet digital pelanggan dalam 3 hari kerja. Pelanggan diberikan notifikasi di setiap tahapan proses hingga refund selesai.",
-    "root_cause": "Produk mengalami kerusakan fisik sebelum sampai ke tangan pelanggan yang diduga terjadi pada proses pengemasan atau pengiriman oleh penjual.",
-    "escalated": false,
-    "resolved_in": "3 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-012",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "get_refund", "primary": true},
-      {"intent": "seller_complaint", "primary": false}
-    ],
-    "category": "refund",
-    "issue": "Pengajuan refund atas produk yang tidak sesuai deskripsi ditolak secara sepihak oleh penjual tanpa alasan yang dapat diverifikasi. Pelanggan meminta intervensi platform untuk menyelesaikan sengketa refund tersebut.",
-    "resolution": "Agen mengidentifikasi penolakan refund oleh penjual tidak disertai alasan yang valid berdasarkan bukti yang diajukan pelanggan, sehingga kasus dieskalasi ke tim mediasi platform. Tim mediasi melakukan peninjauan bukti dari kedua pihak dan memutuskan refund penuh diproses secara paksa kepada pelanggan dalam 4 hari kerja. Penjual menerima peringatan resmi atas pelanggaran kebijakan penanganan sengketa platform.",
-    "root_cause": "Penjual menolak permintaan refund yang secara kebijakan platform termasuk kategori valid, sehingga diperlukan intervensi tim mediasi untuk penyelesaian.",
-    "escalated": true,
-    "resolved_in": "4 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-013",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "get_refund", "primary": true},
-      {"intent": "payment_issue", "primary": false}
-    ],
-    "category": "refund",
-    "issue": "Dana refund belum masuk ke rekening bank pelanggan meskipun status refund pada aplikasi menunjukkan telah diproses lebih dari 5 hari kerja yang lalu. Pelanggan meminta konfirmasi dan kepastian waktu pencairan dana.",
-    "resolution": "Agen menelusuri status refund pada sistem internal dan mengonfirmasi bahwa proses transfer ke rekening bank memerlukan waktu hingga 5 hari kerja sesuai kebijakan platform, dengan kemungkinan penambahan waktu pemrosesan dari pihak bank penerima. Pelanggan disarankan untuk menunggu hingga akhir hari kerja kelima dan menghubungi kembali apabila dana belum masuk setelah batas waktu tersebut. Agen mencatat nomor tiket untuk pemantauan lanjutan jika diperlukan eskalasi ke tim keuangan.",
-    "root_cause": "Proses transfer refund ke rekening bank pihak ketiga memerlukan waktu pemrosesan tambahan yang berada di luar kendali sistem platform.",
-    "escalated": false,
-    "resolved_in": "5 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-014",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "get_refund", "primary": true},
-      {"intent": "check_refund_policy", "primary": false}
-    ],
-    "category": "refund",
-    "issue": "Pelanggan mengajukan refund namun tidak melampirkan dokumen yang dipersyaratkan dan tidak memahami ketentuan yang berlaku untuk proses pengajuan. Pengajuan awal ditolak oleh sistem karena tidak memenuhi kelengkapan berkas.",
-    "resolution": "Agen menjelaskan secara rinci kebijakan refund platform mencakup syarat produk tersegel, bukti foto kondisi barang, dan batas waktu pengajuan maksimal 7 hari sejak produk diterima. Setelah pelanggan memahami ketentuan tersebut, agen memandu proses pengajuan ulang dengan kelengkapan dokumen yang benar melalui fitur pengajuan pada aplikasi. Pengajuan refund berhasil diverifikasi dan masuk ke antrean proses pada hari yang sama.",
-    "root_cause": "Pelanggan tidak memiliki pemahaman yang memadai mengenai persyaratan dan prosedur pengajuan refund yang berlaku di platform.",
-    "escalated": false,
-    "resolved_in": "1 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-015",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "get_refund", "primary": true},
-      {"intent": "cancel_order", "primary": false}
-    ],
-    "category": "refund",
-    "issue": "Pelanggan meminta konfirmasi bahwa dana akan dikembalikan secara otomatis setelah pembatalan pesanan berhasil diproses oleh sistem. Pesanan dibatalkan sebelum memasuki tahap pemrosesan oleh penjual.",
-    "resolution": "Agen mengonfirmasi bahwa pembatalan pesanan telah berhasil diproses dan refund otomatis langsung diinisiasi oleh sistem tanpa memerlukan pengajuan manual dari pelanggan. Dana sejumlah nilai pesanan akan masuk ke saldo dompet digital dalam 3 hari kerja sesuai kebijakan refund platform. Pelanggan diberikan nomor referensi refund untuk keperluan pemantauan status pencairan.",
-    "root_cause": "Pembatalan pesanan yang berhasil diproses sebelum tahap konfirmasi penjual memicu mekanisme refund otomatis sesuai alur sistem platform.",
-    "escalated": false,
-    "resolved_in": "2 jam",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-016",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "return_request", "primary": true},
-      {"intent": "get_refund", "primary": false}
-    ],
-    "category": "retur",
-    "issue": "Produk yang diterima tidak sesuai dengan pesanan karena penjual mengirimkan barang yang berbeda dari yang dipesan. Pelanggan mengajukan permintaan retur dan refund penuh atas kesalahan pengiriman tersebut.",
-    "resolution": "Agen memverifikasi bukti foto produk yang diterima dan mengonfirmasi adanya ketidaksesuaian dengan detail pesanan yang tercatat di sistem. Pengajuan retur disetujui dan label pengiriman retur diterbitkan untuk pengembalian produk kepada penjual menggunakan kurir yang telah ditentukan platform. Setelah penjual mengonfirmasi penerimaan produk retur, refund penuh diproses ke saldo dompet digital pelanggan dalam 3 hari kerja.",
-    "root_cause": "Penjual melakukan kesalahan dalam proses pengemasan dan pengiriman sehingga produk yang dikirimkan tidak sesuai dengan pesanan yang tercatat.",
-    "escalated": false,
-    "resolved_in": "4 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-017",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "return_request", "primary": true},
-      {"intent": "seller_complaint", "primary": false}
-    ],
-    "category": "retur",
-    "issue": "Penjual menolak menerima pengembalian produk yang terbukti memiliki cacat produksi meskipun pengajuan retur telah memenuhi seluruh persyaratan yang ditetapkan platform. Pelanggan meminta intervensi dari pihak platform untuk menyelesaikan sengketa retur tersebut.",
-    "resolution": "Agen mendokumentasikan penolakan retur oleh penjual dan meneruskan kasus ke tim penanganan sengketa platform setelah verifikasi bukti cacat produk dinyatakan valid. Tim platform memutuskan retur wajib diterima oleh penjual berdasarkan kebijakan garansi produk cacat dan memfasilitasi proses pengembalian paket. Refund penuh diberikan kepada pelanggan dalam 5 hari kerja dan penjual menerima sanksi pemotongan penilaian toko atas pelanggaran kebijakan.",
-    "root_cause": "Penjual menolak kewajiban penerimaan retur produk cacat yang secara kebijakan platform merupakan tanggung jawab penuh pihak penjual.",
-    "escalated": true,
-    "resolved_in": "5 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-018",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "return_request", "primary": true},
-      {"intent": "check_refund_policy", "primary": false}
-    ],
-    "category": "retur",
-    "issue": "Pelanggan mengajukan permintaan retur atas produk yang dibeli melalui program flash sale dengan alasan ketidakpuasan terhadap produk yang diterima. Pengajuan retur tidak dapat diproses oleh sistem dan pelanggan meminta penjelasan lebih lanjut.",
-    "resolution": "Agen menjelaskan bahwa produk yang dibeli melalui program flash sale termasuk dalam kategori pengecualian kebijakan retur platform sehingga permintaan retur tidak dapat diproses dalam kondisi apapun kecuali terdapat cacat produksi yang dapat dibuktikan. Pelanggan diberikan informasi mengenai daftar lengkap pengecualian retur mencakup produk flash sale, produk digital, dan produk makanan sesuai ketentuan yang berlaku. Pengajuan retur dinyatakan tidak dapat dilanjutkan dan pelanggan diminta membaca kebijakan pembelian sebelum bertransaksi di program promosi.",
-    "root_cause": "Pelanggan tidak mengetahui bahwa produk yang dibeli melalui program flash sale dikecualikan dari kebijakan retur standar platform.",
-    "escalated": false,
-    "resolved_in": "2 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-019",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "return_request", "primary": true},
-      {"intent": "delivery_period", "primary": false}
-    ],
-    "category": "retur",
-    "issue": "Paket retur yang telah dikirimkan oleh pelanggan mengalami keterlambatan signifikan dalam proses pengiriman menuju lokasi penjual sehingga batas waktu penerimaan retur terancam terlampaui. Pelanggan meminta kepastian bahwa status retur tidak akan dibatalkan akibat keterlambatan kurir.",
-    "resolution": "Agen melakukan pengecekan status pengiriman paket retur melalui nomor resi yang diberikan pelanggan dan mengonfirmasi bahwa keterlambatan disebabkan oleh kendala operasional pada jaringan kurir JNE. Platform memberikan perpanjangan batas waktu penerimaan retur secara otomatis untuk mengakomodasi keterlambatan yang terjadi di luar kendali pelanggan. Penjual diinformasikan mengenai estimasi kedatangan paket retur yang diperbarui dan diminta untuk tetap menerima paket sesuai pengajuan yang telah disetujui.",
-    "root_cause": "Keterlambatan pengiriman paket retur oleh kurir akibat gangguan operasional jaringan distribusi yang menyebabkan potensi pelanggaran batas waktu penerimaan retur.",
-    "escalated": false,
-    "resolved_in": "3 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-020",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "return_request", "primary": true},
-      {"intent": "get_refund", "primary": false}
-    ],
-    "category": "retur",
-    "issue": "Produk yang diterima memiliki spesifikasi yang berbeda secara signifikan dari deskripsi yang tercantum pada halaman produk di platform. Pelanggan mengajukan retur disertai bukti foto dan meminta refund ke saldo dompet digital.",
-    "resolution": "Agen memverifikasi bukti foto yang dikirimkan pelanggan dan membandingkan kondisi produk dengan deskripsi yang tercatat pada halaman produk, kemudian mengonfirmasi adanya ketidaksesuaian yang dapat dipertanggungjawabkan. Pengajuan retur disetujui dan pelanggan diarahkan untuk mengirimkan produk kembali ke penjual dalam kemasan tersegel beserta label asli menggunakan kurir yang telah ditunjuk dalam waktu maksimal 7 hari sejak persetujuan. Setelah penerimaan produk retur dikonfirmasi oleh penjual, refund penuh diproses ke saldo dompet digital pelanggan dalam 3 hari kerja.",
-    "root_cause": "Deskripsi produk pada halaman toko tidak mencerminkan kondisi aktual produk yang dikirimkan kepada pelanggan sehingga menimbulkan ketidaksesuaian ekspektasi.",
-    "escalated": false,
-    "resolved_in": "3 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-021",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "payment_issue", "primary": true},
-      {"intent": "cancel_order", "primary": false}
-    ],
-    "category": "pembayaran",
-    "issue": "Pembayaran pesanan dinyatakan gagal oleh sistem namun saldo dompet digital pelanggan telah terpotong sejumlah nilai transaksi. Pelanggan meminta klarifikasi status pesanan dan kepastian pengembalian saldo yang terpotong.",
-    "resolution": "Agen menelusuri log transaksi pada sistem dan mengonfirmasi bahwa kegagalan pembayaran disebabkan oleh gangguan koneksi sementara antara platform dan penyedia dompet digital. Saldo yang terpotong telah diinisiasi untuk dikembalikan secara otomatis oleh sistem dalam rentang waktu 1 hingga 3 jam sejak transaksi gagal tercatat. Pesanan dinyatakan tidak aktif akibat kegagalan pembayaran dan pelanggan disarankan untuk melakukan pemesanan ulang setelah saldo dipastikan kembali.",
-    "root_cause": "Gangguan koneksi sementara antara sistem platform dan gateway pembayaran dompet digital menyebabkan transaksi gagal diproses namun saldo sempat terdebit.",
-    "escalated": false,
-    "resolved_in": "3 jam",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-022",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "payment_issue", "primary": true},
-      {"intent": "get_refund", "primary": false}
-    ],
-    "category": "pembayaran",
-    "issue": "Pelanggan mendapati bahwa kartu kredit ditagihkan dua kali untuk satu transaksi yang sama pada waktu yang berdekatan. Bukti mutasi rekening kartu kredit telah dilampirkan sebagai pendukung laporan double charge tersebut.",
-    "resolution": "Agen memverifikasi data transaksi pada sistem dan mengonfirmasi adanya duplikasi tagihan yang terjadi akibat kegagalan respons dari payment gateway pada percobaan pertama. Kasus dieskalasi ke tim keuangan untuk pemrosesan refund manual atas kelebihan tagihan yang teridentifikasi. Refund sejumlah satu kali nilai transaksi dijadwalkan dikembalikan ke kartu kredit pelanggan dalam 2 hari kerja dan pelanggan diberikan nomor referensi klaim untuk pemantauan.",
-    "root_cause": "Kegagalan respons payment gateway pada percobaan transaksi pertama memicu sistem melakukan pemrosesan ulang sehingga menghasilkan dua tagihan untuk satu transaksi yang sama.",
-    "escalated": true,
-    "resolved_in": "2 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-023",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "payment_issue", "primary": true},
-      {"intent": "check_payment_options", "primary": false}
-    ],
-    "category": "pembayaran",
-    "issue": "Pelanggan mengalami kebingungan dalam memilih metode pembayaran yang tersedia pada halaman checkout dan tidak memahami perbedaan serta persyaratan masing-masing opsi yang ditampilkan. Proses pembayaran terhenti karena ketidakpastian metode yang akan digunakan.",
-    "resolution": "Agen menjelaskan seluruh metode pembayaran yang tersedia di platform mencakup transfer bank, kartu kredit, COD, dompet digital, dan paylater beserta ketentuan penggunaan masing-masing. Berdasarkan kebutuhan pelanggan, agen merekomendasikan transfer bank sebagai metode yang paling sesuai dan memandu langkah-langkah penyelesaian pembayaran hingga konfirmasi transaksi berhasil diterima sistem. Pelanggan diberikan informasi mengenai batas waktu pembayaran 24 jam yang berlaku sejak pesanan dibuat.",
-    "root_cause": "Pelanggan tidak memiliki pemahaman yang memadai mengenai pilihan metode pembayaran yang tersedia serta alur penyelesaian transaksi pada platform.",
-    "escalated": false,
-    "resolved_in": "1 jam",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-024",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "payment_issue", "primary": true},
-      {"intent": "cancel_order", "primary": false}
-    ],
-    "category": "pembayaran",
-    "issue": "Pesanan yang telah dibuat tidak dapat dilanjutkan karena sistem secara otomatis membatalkan pesanan setelah batas waktu pembayaran 24 jam terlampaui tanpa penyelesaian transaksi. Pelanggan meminta penjelasan dan informasi mengenai kemungkinan pemesanan ulang.",
-    "resolution": "Agen mengonfirmasi bahwa pembatalan pesanan terjadi secara otomatis oleh sistem sesuai kebijakan batas waktu pembayaran 24 jam yang berlaku di platform dan tidak ada dana yang terpotong karena pembayaran tidak pernah diselesaikan. Pelanggan diberikan penjelasan mengenai pentingnya menyelesaikan pembayaran sebelum batas waktu yang ditampilkan pada halaman pesanan. Agen menyarankan pelanggan untuk segera melakukan pemesanan ulang dan menyelesaikan pembayaran dalam satu sesi transaksi.",
-    "root_cause": "Pelanggan tidak menyelesaikan proses pembayaran dalam batas waktu 24 jam yang ditetapkan sistem sehingga pesanan dibatalkan secara otomatis.",
-    "escalated": false,
-    "resolved_in": "30 menit",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-025",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "payment_issue", "primary": true},
-      {"intent": "cod_payment", "primary": false}
-    ],
-    "category": "pembayaran",
-    "issue": "Kurir yang mengantarkan pesanan COD tidak membawa uang kembalian atas pembayaran yang diberikan oleh pelanggan sehingga pelanggan terpaksa membayar lebih dari nilai pesanan yang sebenarnya. Pelanggan mengajukan keluhan dan meminta penyelesaian atas selisih pembayaran tersebut.",
-    "resolution": "Agen mencatat keluhan pelanggan dan meneruskan laporan kepada tim mitra logistik untuk ditindaklanjuti bersama kurir yang bersangkutan terkait prosedur penanganan pembayaran COD. Pelanggan disarankan untuk menyiapkan uang pas pada transaksi COD berikutnya guna menghindari kendala serupa, sesuai dengan imbauan standar layanan COD yang berlaku. Agen mengonfirmasi bahwa pengembalian selisih pembayaran akan dikoordinasikan melalui mitra kurir dan pelanggan akan dihubungi kembali dalam 1 hari kerja dengan pembaruan penyelesaian.",
-    "root_cause": "Kurir tidak memenuhi standar operasional layanan COD yang mewajibkan kesiapan uang kembalian pada setiap pengantaran dengan metode pembayaran tunai.",
-    "escalated": false,
-    "resolved_in": "1 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-026",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "delivery_period", "primary": true},
-      {"intent": "track_order", "primary": false}
-    ],
-    "category": "pengiriman",
-    "issue": "Paket yang dikirimkan melalui kurir JNE belum tiba meskipun estimasi pengiriman yang tertera pada sistem telah terlampaui selama 2 hari. Pelanggan meminta penjelasan mengenai keterlambatan dan estimasi waktu kedatangan yang diperbarui.",
-    "resolution": "Agen melakukan pengecekan status pengiriman dan berkoordinasi dengan pihak JNE untuk memperoleh informasi terkini mengenai posisi paket. Kurir mengonfirmasi bahwa keterlambatan disebabkan oleh kondisi cuaca ekstrem di jalur distribusi yang menghambat operasional pengiriman di beberapa wilayah. Pelanggan diberikan estimasi kedatangan yang diperbarui dan dipastikan paket dalam kondisi aman dalam jaringan pengiriman JNE.",
-    "root_cause": "Kondisi cuaca ekstrem pada jalur distribusi kurir JNE menyebabkan gangguan operasional pengiriman sehingga estimasi kedatangan paket meleset dari jadwal semula.",
-    "escalated": false,
-    "resolved_in": "1 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-027",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "delivery_period", "primary": true},
-      {"intent": "track_order", "primary": false}
-    ],
-    "category": "pengiriman",
-    "issue": "Paket yang dikirimkan ke alamat tujuan di wilayah pedalaman Kalimantan belum tiba setelah melewati estimasi pengiriman yang tertera pada saat pemesanan. Pelanggan mempertanyakan penyebab keterlambatan dan meminta kepastian paket akan sampai ke lokasi tujuan.",
-    "resolution": "Agen menjelaskan bahwa pengiriman ke wilayah terpencil di Kalimantan memerlukan waktu tempuh tambahan di luar estimasi standar karena keterbatasan akses infrastruktur dan ketersediaan armada pengiriman di daerah tersebut. Pengecekan resi dikonfirmasi menunjukkan paket telah tiba di hub terdekat dan sedang dalam proses pengiriman tahap akhir menuju alamat tujuan. Pelanggan diberikan estimasi kedatangan yang diperbarui dengan memperhitungkan kondisi geografis wilayah pengiriman.",
-    "root_cause": "Keterbatasan infrastruktur transportasi dan frekuensi pengiriman ke wilayah terpencil Kalimantan menyebabkan perpanjangan waktu tempuh di luar estimasi pengiriman standar.",
-    "escalated": false,
-    "resolved_in": "2 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-028",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "delivery_period", "primary": true},
-      {"intent": "complaint", "primary": false}
-    ],
-    "category": "pengiriman",
-    "issue": "Paket yang dikirimkan melalui kurir SiCepat mengalami keterlambatan lebih dari 5 hari dari estimasi yang dijanjikan tanpa adanya pembaruan status pelacakan selama periode tersebut. Pelanggan menyampaikan keluhan atas keterlambatan signifikan dan ketiadaan informasi dari pihak kurir.",
-    "resolution": "Agen mendokumentasikan keluhan dan mengajukan investigasi resmi kepada pihak SiCepat terkait keterlambatan ekstrem dan tidak adanya pembaruan resi selama 5 hari. Kasus dieskalasi ke tim mitra logistik karena keterlambatan melebihi ambang batas toleransi yang ditetapkan dalam perjanjian layanan kurir. Setelah koordinasi intensif, paket berhasil dilacak dan kurir memberikan konfirmasi jadwal pengiriman ulang dengan kompensasi prioritas kepada pelanggan.",
-    "root_cause": "Kegagalan operasional internal SiCepat menyebabkan paket tertahan tanpa pemrosesan lebih lanjut dan sistem pelacakan tidak diperbarui selama periode keterlambatan berlangsung.",
-    "escalated": true,
-    "resolved_in": "3 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-029",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "delivery_period", "primary": true},
-      {"intent": "check_payment_options", "primary": false}
-    ],
-    "category": "pengiriman",
-    "issue": "Pelanggan mempertanyakan perbedaan antara layanan pengiriman reguler dan express yang tersedia melalui Gosend, termasuk perbedaan estimasi waktu tiba dan tarif ongkos kirim yang dikenakan untuk masing-masing layanan.",
-    "resolution": "Agen menjelaskan perbedaan layanan Gosend reguler dan express mencakup estimasi waktu pengiriman, jangkauan area layanan, serta struktur tarif yang berlaku untuk masing-masing pilihan. Pelanggan diberikan informasi bahwa layanan express Gosend menawarkan pengiriman di hari yang sama untuk area tertentu dengan tarif yang lebih tinggi dibandingkan layanan reguler. Agen juga menginformasikan ketentuan minimum pembelian senilai Rp100.000 untuk mendapatkan manfaat gratis ongkir sesuai program yang berlaku di platform.",
-    "root_cause": "Pelanggan tidak memiliki informasi yang cukup mengenai perbedaan spesifikasi dan tarif antara layanan pengiriman reguler dan express pada mitra kurir Gosend.",
-    "escalated": false,
-    "resolved_in": "30 menit",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-030",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "delivery_period", "primary": true},
-      {"intent": "track_order", "primary": false}
-    ],
-    "category": "pengiriman",
-    "issue": "Status pelacakan paket menunjukkan bahwa kiriman produk impor ditahan oleh pihak bea cukai dan tidak ada informasi lebih lanjut mengenai estimasi waktu pelepasan paket. Pelanggan meminta penjelasan mengenai proses yang sedang berlangsung dan tindakan yang perlu dilakukan.",
-    "resolution": "Agen menjelaskan bahwa penahanan di bea cukai merupakan prosedur standar untuk produk impor yang memerlukan verifikasi dokumen dan penilaian bea masuk sesuai ketentuan yang berlaku. Pelanggan diarahkan untuk mempersiapkan dokumen identitas dan informasi nilai barang apabila pihak bea cukai memerlukan klarifikasi langsung dari penerima paket. Agen memantau perkembangan status pelacakan dan mengonfirmasi kepada pelanggan bahwa paket akan kembali diproses untuk pengiriman setelah prosedur bea cukai diselesaikan dalam estimasi 1 hari kerja.",
-    "root_cause": "Paket produk impor memasuki proses pemeriksaan wajib oleh otoritas bea cukai untuk verifikasi dokumen dan perhitungan bea masuk sesuai regulasi yang berlaku.",
-    "escalated": false,
-    "resolved_in": "1 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-031",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "seller_complaint", "primary": true},
-      {"intent": "return_request", "primary": false}
-    ],
-    "category": "komplain",
-    "issue": "Produk yang diterima diduga merupakan barang palsu dengan kualitas dan detail fisik yang jauh berbeda dari produk asli yang seharusnya dijual oleh penjual. Pelanggan melaporkan dugaan pemalsuan produk disertai bukti foto perbandingan yang dikirimkan kepada tim platform.",
-    "resolution": "Agen mendokumentasikan laporan dan meneruskan kasus ke tim investigasi platform untuk verifikasi keaslian produk berdasarkan bukti yang dikirimkan pelanggan. Setelah investigasi selesai dan pemalsuan produk terkonfirmasi, pengajuan retur disetujui secara otomatis tanpa biaya pengiriman dan refund penuh diproses ke saldo dompet digital pelanggan. Toko penjual dikenakan sanksi penangguhan operasional sementara dan kasusnya diteruskan ke divisi kepatuhan platform untuk tindakan lebih lanjut.",
-    "root_cause": "Penjual terbukti memasarkan dan mengirimkan produk palsu yang tidak sesuai dengan klaim keaslian yang tercantum pada halaman listing toko.",
-    "escalated": true,
-    "resolved_in": "3 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-032",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "seller_complaint", "primary": true},
-      {"intent": "track_order", "primary": false}
-    ],
-    "category": "komplain",
-    "issue": "Pesanan yang telah dibayar lunas tidak kunjung diproses oleh penjual setelah melewati 2 hari kerja dari waktu pembayaran dikonfirmasi. Status pesanan masih menunjukkan menunggu konfirmasi penjual tanpa adanya perubahan.",
-    "resolution": "Agen mengirimkan notifikasi peringatan kepada penjual melalui sistem internal platform untuk segera memproses pesanan yang tertunda. Penjual merespons dan mengonfirmasi pesanan akan segera diproses serta diserahkan ke kurir pada hari yang sama. Pelanggan diberikan informasi pembaruan status pesanan dan estimasi pengiriman yang baru berdasarkan konfirmasi dari penjual.",
-    "root_cause": "Penjual tidak memproses pesanan dalam batas waktu operasional yang ditetapkan platform akibat kelalaian pengelolaan antrean pesanan masuk.",
-    "escalated": false,
-    "resolved_in": "1 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-033",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "seller_complaint", "primary": true},
-      {"intent": "get_refund", "primary": false}
-    ],
-    "category": "komplain",
-    "issue": "Produk yang diterima dalam kondisi rusak namun penjual tidak memberikan respons apapun terhadap pesan dan pengajuan komplain yang dikirimkan pelanggan selama lebih dari 2 hari. Pelanggan meminta intervensi platform untuk memproses refund atas produk rusak tersebut.",
-    "resolution": "Agen memverifikasi riwayat komunikasi antara pelanggan dan penjual pada sistem dan mengonfirmasi tidak adanya respons dari pihak penjual dalam rentang waktu yang melebihi standar yang ditetapkan platform. Kasus dieskalasi ke tim penanganan sengketa dan refund penuh diputuskan untuk diproses langsung oleh platform tanpa menunggu persetujuan penjual berdasarkan bukti kerusakan yang valid. Penjual menerima peringatan tingkat kedua atas pelanggaran kewajiban responsivitas dan penanganan komplain pembeli.",
-    "root_cause": "Penjual tidak memenuhi kewajiban merespons komplain pembeli dalam batas waktu yang ditetapkan platform sehingga penyelesaian sengketa harus diambil alih oleh tim platform.",
-    "escalated": true,
-    "resolved_in": "4 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-034",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "seller_complaint", "primary": true},
-      {"intent": "complaint", "primary": false}
-    ],
-    "category": "komplain",
-    "issue": "Produk yang diterima memiliki tampilan fisik yang berbeda secara signifikan dari foto yang ditampilkan pada halaman listing toko penjual. Pelanggan merasa tertipu oleh representasi visual produk yang menyesatkan dan mengajukan keluhan resmi kepada platform.",
-    "resolution": "Agen membandingkan foto produk pada halaman listing dengan bukti foto produk yang diterima pelanggan dan mengonfirmasi adanya ketidaksesuaian yang tidak dapat dibenarkan. Laporan diteruskan ke tim moderasi konten platform untuk peninjauan dan pembaruan paksa terhadap foto listing yang menyesatkan pada toko penjual. Pelanggan diberikan informasi mengenai opsi pengajuan retur berdasarkan ketidaksesuaian deskripsi produk apabila ingin melanjutkan proses pengembalian barang.",
-    "root_cause": "Penjual menampilkan foto produk pada halaman listing yang tidak merepresentasikan kondisi aktual produk yang dikirimkan kepada pembeli.",
-    "escalated": false,
-    "resolved_in": "2 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-035",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "seller_complaint", "primary": true},
-      {"intent": "cancel_order", "primary": false}
-    ],
-    "category": "komplain",
-    "issue": "Pesanan yang telah dikonfirmasi dan dibayar lunas dibatalkan secara sepihak oleh penjual tanpa pemberitahuan maupun alasan yang disampaikan kepada pelanggan. Pelanggan mempertanyakan alasan pembatalan dan meminta kepastian pengembalian dana.",
-    "resolution": "Agen mengonfirmasi bahwa pembatalan dilakukan secara sepihak oleh penjual dan mencatat tindakan tersebut sebagai pelanggaran terhadap kebijakan operasional toko yang berlaku di platform. Refund penuh diinisiasi secara otomatis ke saldo dompet digital pelanggan dalam 3 hari kerja sebagai konsekuensi pembatalan sepihak oleh penjual. Penjual menerima peringatan resmi dan catatan pelanggaran pada profil toko yang berdampak pada penurunan peringkat performa penjual di platform.",
-    "root_cause": "Penjual melakukan pembatalan pesanan secara sepihak tanpa alasan yang dapat diverifikasi sehingga melanggar ketentuan kewajiban pemenuhan pesanan yang telah dikonfirmasi.",
-    "escalated": false,
-    "resolved_in": "1 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-036",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "check_voucher", "primary": true},
-      {"intent": "payment_issue", "primary": false}
-    ],
-    "category": "voucher",
-    "issue": "Voucher diskon yang dimiliki pelanggan tidak dapat diterapkan pada saat proses checkout dan sistem menampilkan notifikasi bahwa kode voucher tidak valid. Pelanggan meminta penjelasan mengenai penyebab voucher tidak dapat digunakan.",
-    "resolution": "Agen memeriksa detail ketentuan voucher yang digunakan dan menemukan bahwa total nilai belanja pelanggan berada di bawah batas minimum pembelian yang disyaratkan untuk aktivasi voucher tersebut. Pelanggan diberikan informasi mengenai nilai minimum pembelian yang harus dipenuhi agar voucher dapat diterapkan pada transaksi. Agen menyarankan pelanggan untuk menambahkan produk ke keranjang belanja hingga mencapai nilai minimum yang dipersyaratkan sebelum menggunakan voucher pada saat checkout.",
-    "root_cause": "Total nilai transaksi pelanggan tidak memenuhi batas minimum pembelian yang ditetapkan sebagai syarat penggunaan voucher diskon yang bersangkutan.",
-    "escalated": false,
-    "resolved_in": "30 menit",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-037",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "check_voucher", "primary": true},
-      {"intent": "complaint", "primary": false}
-    ],
-    "category": "voucher",
-    "issue": "Voucher yang diperoleh pelanggan dari program promosi platform tidak dapat digunakan karena status voucher menunjukkan telah kedaluwarsa sebelum pelanggan sempat memanfaatkannya. Pelanggan menyampaikan keluhan dan meminta pertimbangan perpanjangan atau penggantian voucher.",
-    "resolution": "Agen memverifikasi riwayat voucher pada akun pelanggan dan mengonfirmasi bahwa masa berlaku voucher memang telah berakhir sesuai ketentuan periode promosi yang ditetapkan oleh platform. Perpanjangan masa berlaku voucher tidak dapat dilakukan karena kebijakan platform menetapkan bahwa voucher yang telah kedaluwarsa tidak dapat dipulihkan atau digantikan. Pelanggan diarahkan untuk memantau program voucher aktif yang tersedia pada halaman promo platform dan diberikan informasi mengenai cara memperoleh voucher baru pada periode promosi berikutnya.",
-    "root_cause": "Pelanggan tidak menggunakan voucher sebelum batas masa berlaku yang telah ditetapkan pada saat voucher diterbitkan dalam program promosi platform.",
-    "escalated": false,
-    "resolved_in": "1 jam",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-038",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "flash_sale_info", "primary": true},
-      {"intent": "check_stock", "primary": false}
-    ],
-    "category": "promo",
-    "issue": "Produk yang ingin dibeli pada program flash sale tidak dapat ditambahkan ke keranjang karena stok telah habis sebelum pelanggan menyelesaikan proses checkout. Pelanggan mempertanyakan apakah stok flash sale akan diisi ulang dan kapan produk tersebut dapat dibeli kembali.",
-    "resolution": "Agen menjelaskan bahwa stok produk pada program flash sale bersifat terbatas dan tidak dilakukan pengisian ulang dalam sesi yang sama setelah stok habis terjual. Pelanggan diberikan informasi bahwa produk serupa dapat tersedia kembali pada sesi flash sale berikutnya dan disarankan untuk mengaktifkan fitur notifikasi produk agar mendapatkan pemberitahuan saat flash sale berikutnya dimulai. Agen juga menginformasikan bahwa pembelian produk dengan harga normal tetap dapat dilakukan melalui halaman toko penjual yang bersangkutan.",
-    "root_cause": "Tingginya permintaan terhadap produk flash sale menyebabkan stok terbatas habis terjual sebelum seluruh pelanggan yang berminat dapat menyelesaikan proses checkout.",
-    "escalated": false,
-    "resolved_in": "30 menit",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-039",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "check_voucher", "primary": true},
-      {"intent": "check_refund_policy", "primary": false}
-    ],
-    "category": "voucher",
-    "issue": "Pelanggan mengajukan pertanyaan mengenai status voucher yang digunakan pada transaksi yang kemudian diajukan refund, khususnya apakah voucher tersebut dapat digunakan kembali setelah proses refund berhasil diselesaikan.",
-    "resolution": "Agen menjelaskan kebijakan platform mengenai voucher pada transaksi yang direfund, yaitu voucher yang telah digunakan pada transaksi yang direfund tidak secara otomatis dikembalikan ke akun pelanggan dan dinyatakan hangus setelah refund diproses. Refund yang diberikan kepada pelanggan dihitung berdasarkan nilai aktual yang dibayarkan setelah potongan voucher diterapkan, bukan nilai produk penuh sebelum diskon. Pelanggan disarankan untuk memantau program voucher yang aktif pada platform guna memperoleh voucher baru untuk transaksi berikutnya.",
-    "root_cause": "Pelanggan tidak memiliki pemahaman yang memadai mengenai ketentuan penanganan voucher pada transaksi yang mengalami proses refund sesuai kebijakan platform.",
-    "escalated": false,
-    "resolved_in": "1 jam",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-040",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "flash_sale_info", "primary": true},
-      {"intent": "payment_issue", "primary": false}
-    ],
-    "category": "promo",
-    "issue": "Harga diskon flash sale yang ditampilkan pada halaman produk tidak teraplikasi pada saat pelanggan melanjutkan ke halaman checkout meskipun stok produk masih tersedia. Total tagihan yang muncul pada halaman pembayaran mencerminkan harga normal tanpa potongan flash sale.",
-    "resolution": "Agen menelusuri laporan dan menemukan adanya ketidaksesuaian antara harga yang ditampilkan pada halaman produk dengan harga yang diproses pada sistem checkout akibat gangguan sinkronisasi harga promo. Pelanggan diarahkan untuk mengosongkan keranjang belanja, memuat ulang halaman produk, dan menambahkan produk kembali ke keranjang guna memastikan harga flash sale yang diperbarui terbaca oleh sistem checkout. Setelah langkah tersebut dilakukan, harga flash sale berhasil teraplikasi dengan benar dan pelanggan dapat menyelesaikan transaksi dengan harga promo yang sesuai.",
-    "root_cause": "Gangguan sinkronisasi antara sistem tampilan harga promo flash sale dan mesin kalkulasi harga pada halaman checkout menyebabkan harga diskon tidak teraplikasi secara otomatis.",
-    "escalated": false,
-    "resolved_in": "2 jam",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-041",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "edit_account", "primary": true},
-      {"intent": "escalate_to_human", "primary": false}
-    ],
-    "category": "akun",
-    "issue": "Pelanggan tidak dapat mengganti nomor telepon yang terdaftar pada akun karena proses verifikasi OTP ke nomor baru terus mengalami kegagalan meskipun telah dilakukan beberapa kali percobaan. Pelanggan meminta bantuan langsung dari agen untuk menyelesaikan pembaruan data tersebut.",
-    "resolution": "Agen memeriksa log verifikasi pada akun pelanggan dan menemukan bahwa kegagalan OTP disebabkan oleh nomor tujuan yang terindikasi memiliki pembatasan penerimaan pesan dari layanan tertentu. Agen memandu pelanggan melalui jalur verifikasi alternatif menggunakan konfirmasi via email terdaftar sebagai pengganti OTP untuk memvalidasi perubahan nomor telepon. Setelah identitas pelanggan berhasil diverifikasi, pembaruan nomor telepon pada akun berhasil disimpan dan pelanggan diminta melakukan pengujian login ulang.",
-    "root_cause": "Pembatasan penerimaan pesan OTP pada nomor telepon tujuan menyebabkan proses verifikasi perubahan data akun tidak dapat diselesaikan melalui jalur standar.",
-    "escalated": false,
-    "resolved_in": "1 jam",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-042",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "delete_account", "primary": true},
-      {"intent": "escalate_to_human", "primary": false}
-    ],
-    "category": "akun",
-    "issue": "Pelanggan mengajukan permintaan penghapusan akun secara permanen beserta seluruh data pribadi yang tersimpan di platform sesuai hak penghapusan data yang berlaku. Permintaan tidak dapat diproses secara mandiri melalui aplikasi dan pelanggan meminta bantuan langsung dari tim platform.",
-    "resolution": "Agen menerima permintaan dan meneruskan kasus ke tim pengelolaan data pengguna karena penghapusan akun beserta seluruh data pribadi memerlukan verifikasi identitas tingkat lanjut dan persetujuan dari divisi kepatuhan data platform. Kasus dieskalasi untuk memastikan proses penghapusan dilakukan sesuai regulasi perlindungan data yang berlaku dan seluruh jejak data pelanggan dihapus dari sistem secara menyeluruh. Pelanggan diberikan konfirmasi tertulis bahwa permintaan telah diterima dan proses penghapusan akan diselesaikan dalam 2 hari kerja disertai notifikasi final setelah selesai.",
-    "root_cause": "Proses penghapusan akun dan data pribadi secara permanen memerlukan alur verifikasi dan persetujuan berlapis yang tidak tersedia melalui fitur swalayan pada aplikasi.",
-    "escalated": true,
-    "resolved_in": "2 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-043",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "escalate_to_human", "primary": true},
-      {"intent": "complaint", "primary": false}
-    ],
-    "category": "eskalasi",
-    "issue": "Pelanggan dengan status VIP menyatakan ketidakpuasan terhadap kualitas respons yang diberikan oleh sistem otomatis dan secara tegas meminta untuk dihubungkan dengan agen senior yang memiliki kewenangan penuh untuk menyelesaikan permasalahan yang dihadapi. Pelanggan merasa permasalahannya tidak tertangani dengan tepat melalui jalur layanan standar.",
-    "resolution": "Agen mengidentifikasi status VIP pelanggan pada sistem dan segera mengalihkan percakapan ke agen senior yang memiliki akses penuh terhadap riwayat transaksi dan kewenangan penyelesaian kasus prioritas. Agen senior melakukan peninjauan menyeluruh terhadap riwayat interaksi dan permasalahan yang dilaporkan pelanggan serta memberikan solusi konkret yang disesuaikan dengan kebutuhan spesifik pelanggan VIP. Pelanggan menerima konfirmasi penyelesaian dan ditawarkan kompensasi berupa voucher prioritas sebagai bentuk apresiasi atas ketidaknyamanan yang dialami.",
-    "root_cause": "Sistem layanan otomatis tidak mampu menangani kompleksitas permasalahan yang diajukan pelanggan VIP sehingga memerlukan intervensi langsung dari agen dengan kewenangan dan kapabilitas yang lebih tinggi.",
-    "escalated": true,
-    "resolved_in": "1 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-044",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "escalate_to_human", "primary": true},
-      {"intent": "get_refund", "primary": false}
-    ],
-    "category": "eskalasi",
-    "issue": "Proses refund yang diajukan pelanggan tidak menunjukkan penyelesaian setelah melewati 2 minggu sejak pengajuan pertama dilakukan dan berbagai upaya tindak lanjut melalui jalur layanan standar tidak menghasilkan perkembangan yang berarti. Pelanggan meminta eskalasi langsung ke tingkat manajemen untuk penyelesaian segera.",
-    "resolution": "Agen mendokumentasikan seluruh riwayat penanganan kasus refund selama 2 minggu terakhir dan meneruskan eskalasi ke tingkat manajemen layanan pelanggan beserta catatan kronologi lengkap. Tim manajemen melakukan investigasi internal terhadap penyebab stagnasi proses refund dan mengidentifikasi adanya kesalahan routing kasus pada sistem antrean penanganan. Refund penuh diproses secara prioritas oleh tim keuangan dan dana masuk ke rekening bank pelanggan dalam 3 hari kerja disertai permintaan maaf resmi dari pihak platform.",
-    "root_cause": "Kesalahan routing kasus pada sistem antrean penanganan internal menyebabkan proses refund tidak ditangani oleh tim yang berwenang selama periode yang tidak semestinya.",
-    "escalated": true,
-    "resolved_in": "3 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-045",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "create_account", "primary": true},
-      {"intent": "edit_account", "primary": false}
-    ],
-    "category": "akun",
-    "issue": "Pendaftaran akun baru tidak dapat diselesaikan karena sistem mendeteksi bahwa alamat email yang digunakan telah terdaftar pada akun lain di platform. Pelanggan menyatakan tidak merasa pernah mendaftarkan email tersebut sebelumnya dan meminta bantuan untuk menyelesaikan proses registrasi.",
-    "resolution": "Agen memverifikasi status email yang bersangkutan pada sistem dan mengonfirmasi bahwa alamat email tersebut memang telah terasosiasi dengan akun yang pernah dibuat sebelumnya pada platform. Pelanggan diarahkan untuk menggunakan fitur lupa kata sandi guna memulihkan akses ke akun yang sudah ada menggunakan email yang sama alih-alih membuat akun baru. Apabila pelanggan tidak mengenali akun tersebut, agen menyarankan penggunaan alamat email alternatif untuk proses pendaftaran akun baru.",
-    "root_cause": "Alamat email yang digunakan pelanggan untuk pendaftaran telah terdaftar pada akun yang ada di sistem platform sehingga proses pembuatan akun baru tidak dapat dilanjutkan.",
-    "escalated": false,
-    "resolved_in": "30 menit",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-046",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "complaint", "primary": true},
-      {"intent": "escalate_to_human", "primary": false}
-    ],
-    "category": "komplain",
-    "issue": "Pelanggan menyampaikan keluhan dengan nada tidak puas karena permasalahan yang sama telah dilaporkan lebih dari satu kali namun tidak kunjung mendapatkan penyelesaian yang tuntas dari tim layanan pelanggan. Pelanggan secara tegas meminta penanganan langsung oleh agen dengan kewenangan penuh untuk mengakhiri permasalahan yang berulang tersebut.",
-    "resolution": "Agen mengidentifikasi riwayat tiket sebelumnya yang berkaitan dengan permasalahan serupa dan mengonfirmasi bahwa penanganan sebelumnya tidak diselesaikan secara menyeluruh akibat koordinasi antardivisi yang tidak optimal. Kasus dieskalasi ke supervisor layanan pelanggan yang mengambil alih penanganan secara langsung dan memberikan komitmen penyelesaian dengan tenggat waktu yang jelas kepada pelanggan. Supervisor menyelesaikan akar permasalahan secara tuntas, menyampaikan permintaan maaf resmi, dan memberikan kompensasi berupa voucher belanja sebagai bentuk pertanggungjawaban atas ketidaknyamanan yang berulang.",
-    "root_cause": "Penanganan tiket sebelumnya tidak menyentuh akar permasalahan dan tidak disertai mekanisme tindak lanjut yang memadai sehingga permasalahan yang sama terus berulang tanpa penyelesaian yang tuntas.",
-    "escalated": true,
-    "resolved_in": "2 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-047",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "cod_payment", "primary": true},
-      {"intent": "cancel_order", "primary": false}
-    ],
-    "category": "pembayaran",
-    "issue": "Pelanggan menolak menerima paket COD pada saat pengantaran karena kondisi kemasan luar terlihat rusak dan mengkhawatirkan kondisi produk di dalamnya. Pelanggan meminta kepastian mengenai status pesanan dan proses selanjutnya setelah penolakan paket dilakukan.",
-    "resolution": "Agen mengonfirmasi bahwa penolakan paket COD dengan kondisi kemasan rusak merupakan hak pelanggan yang dilindungi oleh kebijakan platform dan tidak dikenakan penalti apapun. Paket yang ditolak akan dikembalikan ke penjual oleh kurir dan proses pembatalan pesanan diinisiasi secara otomatis tanpa kewajiban pembayaran dari pihak pelanggan karena transaksi COD tidak pernah diselesaikan. Pelanggan disarankan untuk mendokumentasikan kondisi kemasan melalui foto sebelum penolakan sebagai bukti pendukung apabila diperlukan untuk pengajuan klaim lebih lanjut.",
-    "root_cause": "Kerusakan kemasan paket yang terjadi selama proses pengiriman oleh kurir menyebabkan pelanggan menolak penerimaan barang pada saat pengantaran COD.",
-    "escalated": false,
-    "resolved_in": "1 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-048",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "complaint", "primary": true},
-      {"intent": "delivery_period", "primary": false}
-    ],
-    "category": "komplain",
-    "issue": "Pelanggan menyampaikan keluhan bahwa estimasi waktu pengiriman yang ditampilkan pada halaman produk saat pembelian tidak sesuai dengan waktu aktual pengiriman yang dialami. Perbedaan antara estimasi yang tertera dan realisasi pengiriman dinilai cukup signifikan sehingga menimbulkan ketidakpuasan.",
-    "resolution": "Agen menerima keluhan dan menjelaskan bahwa estimasi pengiriman yang ditampilkan pada halaman produk merupakan perkiraan berdasarkan kondisi normal dan dapat berubah tergantung pada faktor operasional kurir serta kondisi wilayah pengiriman. Laporan ketidakakuratan estimasi diteruskan ke tim pengembangan platform sebagai masukan untuk peningkatan akurasi kalkulasi estimasi pengiriman yang ditampilkan kepada pelanggan. Pelanggan diberikan informasi mengenai cara memantau status pengiriman secara real-time melalui fitur pelacakan pada aplikasi sebagai referensi yang lebih akurat dibandingkan estimasi statis pada halaman produk.",
-    "root_cause": "Sistem kalkulasi estimasi pengiriman pada halaman produk tidak memperhitungkan variabel operasional dinamis kurir sehingga menghasilkan perkiraan waktu yang tidak selalu akurat.",
-    "escalated": false,
-    "resolved_in": "1 hari kerja",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-049",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "cod_payment", "primary": true},
-      {"intent": "payment_issue", "primary": false}
-    ],
-    "category": "pembayaran",
-    "issue": "Kurir mencatat nominal tagihan COD yang berbeda dari nilai pesanan yang sebenarnya sehingga pelanggan membayar jumlah yang lebih besar dari yang seharusnya pada saat pengantaran. Pelanggan meminta pengembalian selisih kelebihan pembayaran yang terjadi akibat kesalahan pencatatan kurir.",
-    "resolution": "Agen memverifikasi nilai pesanan yang tercatat pada sistem dan membandingkannya dengan nominal COD yang dibayarkan pelanggan berdasarkan bukti pembayaran yang dikirimkan. Setelah selisih kelebihan bayar dikonfirmasi, laporan diteruskan ke tim mitra logistik untuk proses pengembalian dana selisih melalui mekanisme klaim kesalahan pencatatan kurir. Pelanggan diberikan nomor referensi klaim dan konfirmasi bahwa pengembalian selisih akan diproses dalam 2 jam melalui koordinasi langsung antara platform dan pihak kurir.",
-    "root_cause": "Kesalahan pencatatan nominal tagihan COD oleh kurir pada saat proses pengantaran menyebabkan pelanggan membayar jumlah yang melebihi nilai pesanan yang sebenarnya.",
-    "escalated": false,
-    "resolved_in": "2 jam",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  },
-  {
-    "doc_id": "ticket-050",
-    "collection": "ticket_history",
-    "intents": [
-      {"intent": "check_stock", "primary": true},
-      {"intent": "complaint", "primary": false}
-    ],
-    "category": "produk",
-    "issue": "Pesanan yang telah dikonfirmasi dan dibayar lunas dibatalkan oleh penjual dengan alasan stok produk kosong, padahal sistem menampilkan status stok tersedia pada saat proses pembelian dilakukan. Pelanggan menyampaikan keluhan atas ketidaksesuaian informasi stok dan meminta penjelasan serta penyelesaian segera.",
-    "resolution": "Agen mengonfirmasi bahwa pembatalan terjadi akibat ketidaksesuaian antara stok yang ditampilkan pada sistem platform dengan stok fisik aktual yang dimiliki penjual pada saat pesanan masuk. Refund penuh diinisiasi secara otomatis ke saldo dompet digital pelanggan dalam 3 hari kerja sebagai konsekuensi pembatalan yang disebabkan oleh kesalahan informasi stok dari pihak penjual. Laporan ketidakakuratan stok diteruskan ke tim pemantauan penjual untuk mendorong penjual melakukan sinkronisasi stok secara berkala guna mencegah kejadian serupa.",
-    "root_cause": "Penjual tidak melakukan pembaruan data stok secara sinkron dengan sistem platform sehingga informasi ketersediaan produk yang ditampilkan kepada pembeli tidak mencerminkan kondisi stok fisik yang sebenarnya.",
-    "escalated": false,
-    "resolved_in": "30 menit",
-    "language": "id",
-    "source": "synthetic",
-    "updated_at": "2025-01-01"
-  }
-
+    {
+      "doc_id": "ticket-001",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "cancel_order",
+          "primary": true
+        },
+        {
+          "intent": "get_refund",
+          "primary": false
+        }
+      ],
+      "category": "pembatalan",
+      "issue": "Pesanan ingin dibatalkan sebelum barang dikirimkan oleh penjual. Permintaan refund diajukan ke saldo dompet digital.",
+      "resolution": "Pembatalan pesanan berhasil diproses karena status pesanan masih dalam tahap konfirmasi penjual. Refund sejumlah nilai pesanan dijadwalkan masuk ke saldo dompet digital dalam 3 hari kerja sesuai kebijakan platform.",
+      "root_cause": "Pelanggan mengubah keputusan pembelian sebelum pesanan memasuki proses pengiriman.",
+      "escalated": false,
+      "resolved_in": "2 jam",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-001",
+      "order_id": "ORD-2026-2186",
+      "assigned_to": "Agent Rina",
+      "status": "in_progress"
+    },
+    {
+      "doc_id": "ticket-002",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "cancel_order",
+          "primary": true
+        },
+        {
+          "intent": "get_refund",
+          "primary": false
+        }
+      ],
+      "category": "pembatalan",
+      "issue": "Pembatalan pesanan diajukan setelah barang sudah dalam proses pengiriman oleh kurir JNE. Permintaan refund turut disampaikan bersamaan dengan pengajuan pembatalan.",
+      "resolution": "Agen mengarahkan pelanggan untuk menolak paket saat tiba dan melakukan pengajuan retur melalui aplikasi dengan menyertakan bukti foto serta label pengiriman asli. Setelah paket dikonfirmasi diterima kembali oleh penjual, proses refund ke rekening bank akan diselesaikan dalam 5 hari kerja. Kasus dieskalasi ke tim logistik untuk koordinasi penarikan paket bersama kurir.",
+      "root_cause": "Permintaan pembatalan diajukan setelah pesanan telah diserahkan kepada mitra kurir sehingga memerlukan proses retur fisik.",
+      "escalated": true,
+      "resolved_in": "2 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-002",
+      "order_id": "ORD-2026-4822",
+      "assigned_to": "Agent Budi",
+      "status": "escalated"
+    },
+    {
+      "doc_id": "ticket-003",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "cancel_order",
+          "primary": true
+        },
+        {
+          "intent": "payment_issue",
+          "primary": false
+        }
+      ],
+      "category": "pembatalan",
+      "issue": "Pesanan tidak dapat dilanjutkan karena batas waktu pembayaran telah lewat dan status pesanan otomatis dibatalkan oleh sistem. Pelanggan meminta konfirmasi pembatalan dan penjelasan mengenai status dana.",
+      "resolution": "Agen mengonfirmasi bahwa pesanan telah dibatalkan secara otomatis oleh sistem akibat melewati batas waktu pembayaran 24 jam. Karena pembayaran tidak berhasil diselesaikan, tidak ada dana yang masuk sehingga tidak diperlukan proses refund. Pelanggan disarankan untuk membuat pesanan baru dan menyelesaikan pembayaran sebelum batas waktu yang ditentukan.",
+      "root_cause": "Pelanggan tidak menyelesaikan pembayaran dalam batas waktu 24 jam setelah pesanan dibuat sehingga sistem membatalkan pesanan secara otomatis.",
+      "escalated": false,
+      "resolved_in": "1 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-003",
+      "order_id": "ORD-2026-9488",
+      "assigned_to": "Agent Sari",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-004",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "cancel_order",
+          "primary": true
+        },
+        {
+          "intent": "get_refund",
+          "primary": false
+        }
+      ],
+      "category": "pembatalan",
+      "issue": "Pelanggan menyadari telah memilih ukuran produk yang keliru saat melakukan pemesanan dan mengajukan pembatalan sebelum pesanan diproses oleh penjual. Refund diminta kembali ke metode pembayaran asal.",
+      "resolution": "Pembatalan berhasil diproses karena pesanan masih berada pada status menunggu konfirmasi penjual. Dana refund akan dikembalikan ke saldo dompet digital dalam 3 hari kerja sesuai kebijakan platform. Pelanggan disarankan untuk melakukan pemesanan ulang dengan memilih ukuran yang sesuai.",
+      "root_cause": "Kesalahan pemilihan atribut produk oleh pelanggan pada saat proses checkout sebelum pesanan diverifikasi penjual.",
+      "escalated": false,
+      "resolved_in": "3 jam",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-004",
+      "order_id": "ORD-2026-6169",
+      "assigned_to": "Agent Doni",
+      "status": "closed"
+    },
+    {
+      "doc_id": "ticket-005",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "cancel_order",
+          "primary": true
+        },
+        {
+          "intent": "seller_complaint",
+          "primary": false
+        }
+      ],
+      "category": "pembatalan",
+      "issue": "Penjual tidak memberikan respons maupun memproses pesanan selama lebih dari 2 hari sehingga pelanggan mengajukan pembatalan dan melaporkan ketidakresponsifan penjual kepada tim platform.",
+      "resolution": "Agen memverifikasi riwayat aktivitas penjual dan mengonfirmasi bahwa pesanan memang belum diproses dalam rentang waktu yang melebihi standar operasional. Pembatalan disetujui dan proses refund ke rekening bank dijadwalkan selesai dalam 5 hari kerja. Kasus dieskalasi ke tim penjual untuk pemberian peringatan dan evaluasi performa toko sesuai kebijakan platform.",
+      "root_cause": "Penjual tidak memproses pesanan dalam batas waktu yang ditetapkan platform sehingga menyebabkan keterlambatan operasional dan ketidakpuasan pelanggan.",
+      "escalated": true,
+      "resolved_in": "3 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-005",
+      "order_id": "ORD-2026-8014",
+      "assigned_to": "Agent Maya",
+      "status": "escalated"
+    },
+    {
+      "doc_id": "ticket-006",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "track_order",
+          "primary": true
+        },
+        {
+          "intent": "delivery_period",
+          "primary": false
+        }
+      ],
+      "category": "pengiriman",
+      "issue": "Nomor resi tidak menunjukkan pembaruan status selama 3 hari berturut-turut sejak pesanan diserahkan ke kurir SiCepat. Pelanggan mempertanyakan keberadaan paket dan estimasi waktu kedatangan.",
+      "resolution": "Agen melakukan pengecekan langsung ke pihak kurir dan menemukan bahwa paket mengalami penundaan akibat penumpukan volume kiriman di gudang transit kurir. Kurir mengonfirmasi paket dalam kondisi aman dan pembaruan resi akan aktif kembali dalam 1x24 jam. Pelanggan diberikan informasi estimasi pengiriman terbaru dan diminta memantau status resi secara berkala.",
+      "root_cause": "Penumpukan volume paket di gudang operasional kurir menyebabkan keterlambatan pemindaian dan pembaruan status resi.",
+      "escalated": false,
+      "resolved_in": "1 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-006",
+      "order_id": "ORD-2026-9168",
+      "assigned_to": "Agent Fajar",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-007",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "track_order",
+          "primary": true
+        },
+        {
+          "intent": "get_refund",
+          "primary": false
+        }
+      ],
+      "category": "pengiriman",
+      "issue": "Paket tidak kunjung tiba dalam waktu yang jauh melampaui estimasi pengiriman dan status resi berhenti pada titik transit tertentu tanpa pembaruan lebih lanjut. Pelanggan meminta investigasi keberadaan paket dan pengajuan refund.",
+      "resolution": "Agen mengajukan klaim investigasi resmi kepada pihak kurir JNE dan setelah proses penelusuran selesai, kurir menyatakan paket dinyatakan hilang dalam jaringan pengiriman. Kasus dieskalasi ke tim klaim untuk pemrosesan refund penuh senilai harga produk dan ongkos kirim ke rekening bank pelanggan dalam 5 hari kerja. Laporan insiden diteruskan ke divisi mitra logistik untuk tindak lanjut internal.",
+      "root_cause": "Paket mengalami kehilangan dalam jaringan distribusi kurir yang dikonfirmasi melalui proses investigasi resmi pihak logistik.",
+      "escalated": true,
+      "resolved_in": "5 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-007",
+      "order_id": "ORD-2026-6779",
+      "assigned_to": "Agent Lestari",
+      "status": "in_progress"
+    },
+    {
+      "doc_id": "ticket-008",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "track_order",
+          "primary": true
+        },
+        {
+          "intent": "delivery_period",
+          "primary": false
+        }
+      ],
+      "category": "pengiriman",
+      "issue": "Status pengiriman terhenti di kota transit selama lebih dari 2 hari tanpa ada perpindahan ke tahap pengiriman berikutnya. Pelanggan mempertanyakan apakah paket masih dalam proses pengiriman menuju kota tujuan.",
+      "resolution": "Agen berkoordinasi langsung dengan pihak kurir J&T untuk menelusuri keberadaan paket di kota transit. Kurir mengonfirmasi paket telah ditemukan dan sedang dalam proses pengiriman ke kota tujuan dengan estimasi tiba dalam 1-2 hari kerja berikutnya. Status resi diperbarui setelah koordinasi selesai dan pelanggan diberikan notifikasi perkembangan terkini.",
+      "root_cause": "Keterlambatan pemindaian paket di titik transit antarkota menyebabkan status pengiriman tidak diperbarui secara real-time pada sistem pelacakan.",
+      "escalated": false,
+      "resolved_in": "4 jam",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-008",
+      "order_id": "ORD-2026-8088",
+      "assigned_to": "Agent Hendra",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-009",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "track_order",
+          "primary": true
+        },
+        {
+          "intent": "delivery_period",
+          "primary": false
+        }
+      ],
+      "category": "pengiriman",
+      "issue": "Kurir melaporkan bahwa alamat tujuan pengiriman tidak dapat ditemukan sehingga paket dikembalikan ke kantor kurir terdekat. Pelanggan mempertanyakan status paket dan langkah selanjutnya agar paket dapat diterima.",
+      "resolution": "Agen menghubungi pelanggan untuk verifikasi dan konfirmasi ulang detail alamat pengiriman secara lengkap termasuk patokan lokasi yang jelas. Informasi alamat yang telah diperbarui diteruskan kepada pihak kurir SiCepat untuk dilakukan upaya pengiriman ulang pada hari kerja berikutnya. Pelanggan diminta memastikan ketersediaan penerima pada rentang waktu pengiriman yang telah dijadwalkan.",
+      "root_cause": "Alamat pengiriman yang tercatat pada label paket tidak cukup detail sehingga kurir tidak dapat menemukan lokasi tujuan saat proses pengantaran.",
+      "escalated": false,
+      "resolved_in": "2 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-009",
+      "order_id": "ORD-2026-8321",
+      "assigned_to": "Agent Wulan",
+      "status": "in_progress"
+    },
+    {
+      "doc_id": "ticket-010",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "track_order",
+          "primary": true
+        },
+        {
+          "intent": "complaint",
+          "primary": false
+        }
+      ],
+      "category": "pengiriman",
+      "issue": "Status resi menunjukkan paket telah berhasil diterima namun pelanggan menyatakan tidak pernah menerima paket tersebut di lokasi pengiriman. Pelanggan mengajukan keberatan dan meminta investigasi segera.",
+      "resolution": "Agen mencatat laporan ketidaksesuaian status pengiriman dan mengajukan klaim investigasi resmi kepada kurir Gosend untuk penelusuran bukti pengiriman termasuk foto dan tanda terima. Kasus dieskalasi ke tim penanganan sengketa karena adanya indikasi kesalahan konfirmasi pengiriman oleh kurir. Selama proses investigasi berlangsung, pelanggan diberikan pembaruan status setiap hari kerja hingga keputusan akhir ditetapkan.",
+      "root_cause": "Kurir menandai status pengiriman sebagai terselesaikan tanpa memastikan paket diterima langsung oleh penerima yang sah di alamat tujuan.",
+      "escalated": true,
+      "resolved_in": "3 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-010",
+      "order_id": "ORD-2026-2370",
+      "assigned_to": "Agent Rizky",
+      "status": "in_progress"
+    },
+    {
+      "doc_id": "ticket-011",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "get_refund",
+          "primary": true
+        },
+        {
+          "intent": "return_request",
+          "primary": false
+        }
+      ],
+      "category": "refund",
+      "issue": "Produk yang diterima dalam kondisi rusak sehingga pelanggan mengajukan permintaan retur dan refund penuh atas pembelian tersebut. Bukti kerusakan telah disertakan dalam bentuk foto produk beserta kemasan asli.",
+      "resolution": "Agen memverifikasi kelengkapan dokumen retur yang dikirimkan pelanggan dan menyetujui pengajuan karena memenuhi seluruh syarat kebijakan retur platform. Setelah paket retur dikonfirmasi diterima oleh penjual, proses refund penuh diinisiasi dan dana dijadwalkan masuk ke saldo dompet digital pelanggan dalam 3 hari kerja. Pelanggan diberikan notifikasi di setiap tahapan proses hingga refund selesai.",
+      "root_cause": "Produk mengalami kerusakan fisik sebelum sampai ke tangan pelanggan yang diduga terjadi pada proses pengemasan atau pengiriman oleh penjual.",
+      "escalated": false,
+      "resolved_in": "3 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-011",
+      "order_id": "ORD-2026-7394",
+      "assigned_to": "Agent Rina",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-012",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "get_refund",
+          "primary": true
+        },
+        {
+          "intent": "seller_complaint",
+          "primary": false
+        }
+      ],
+      "category": "refund",
+      "issue": "Pengajuan refund atas produk yang tidak sesuai deskripsi ditolak secara sepihak oleh penjual tanpa alasan yang dapat diverifikasi. Pelanggan meminta intervensi platform untuk menyelesaikan sengketa refund tersebut.",
+      "resolution": "Agen mengidentifikasi penolakan refund oleh penjual tidak disertai alasan yang valid berdasarkan bukti yang diajukan pelanggan, sehingga kasus dieskalasi ke tim mediasi platform. Tim mediasi melakukan peninjauan bukti dari kedua pihak dan memutuskan refund penuh diproses secara paksa kepada pelanggan dalam 4 hari kerja. Penjual menerima peringatan resmi atas pelanggaran kebijakan penanganan sengketa platform.",
+      "root_cause": "Penjual menolak permintaan refund yang secara kebijakan platform termasuk kategori valid, sehingga diperlukan intervensi tim mediasi untuk penyelesaian.",
+      "escalated": true,
+      "resolved_in": "4 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-012",
+      "order_id": "ORD-2026-4933",
+      "assigned_to": "Agent Budi",
+      "status": "escalated"
+    },
+    {
+      "doc_id": "ticket-013",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "get_refund",
+          "primary": true
+        },
+        {
+          "intent": "payment_issue",
+          "primary": false
+        }
+      ],
+      "category": "refund",
+      "issue": "Dana refund belum masuk ke rekening bank pelanggan meskipun status refund pada aplikasi menunjukkan telah diproses lebih dari 5 hari kerja yang lalu. Pelanggan meminta konfirmasi dan kepastian waktu pencairan dana.",
+      "resolution": "Agen menelusuri status refund pada sistem internal dan mengonfirmasi bahwa proses transfer ke rekening bank memerlukan waktu hingga 5 hari kerja sesuai kebijakan platform, dengan kemungkinan penambahan waktu pemrosesan dari pihak bank penerima. Pelanggan disarankan untuk menunggu hingga akhir hari kerja kelima dan menghubungi kembali apabila dana belum masuk setelah batas waktu tersebut. Agen mencatat nomor tiket untuk pemantauan lanjutan jika diperlukan eskalasi ke tim keuangan.",
+      "root_cause": "Proses transfer refund ke rekening bank pihak ketiga memerlukan waktu pemrosesan tambahan yang berada di luar kendali sistem platform.",
+      "escalated": false,
+      "resolved_in": "5 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-013",
+      "order_id": "ORD-2026-2560",
+      "assigned_to": "Agent Sari",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-014",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "get_refund",
+          "primary": true
+        },
+        {
+          "intent": "check_refund_policy",
+          "primary": false
+        }
+      ],
+      "category": "refund",
+      "issue": "Pelanggan mengajukan refund namun tidak melampirkan dokumen yang dipersyaratkan dan tidak memahami ketentuan yang berlaku untuk proses pengajuan. Pengajuan awal ditolak oleh sistem karena tidak memenuhi kelengkapan berkas.",
+      "resolution": "Agen menjelaskan secara rinci kebijakan refund platform mencakup syarat produk tersegel, bukti foto kondisi barang, dan batas waktu pengajuan maksimal 7 hari sejak produk diterima. Setelah pelanggan memahami ketentuan tersebut, agen memandu proses pengajuan ulang dengan kelengkapan dokumen yang benar melalui fitur pengajuan pada aplikasi. Pengajuan refund berhasil diverifikasi dan masuk ke antrean proses pada hari yang sama.",
+      "root_cause": "Pelanggan tidak memiliki pemahaman yang memadai mengenai persyaratan dan prosedur pengajuan refund yang berlaku di platform.",
+      "escalated": false,
+      "resolved_in": "1 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-014",
+      "order_id": "ORD-2026-4832",
+      "assigned_to": "Agent Doni",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-015",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "get_refund",
+          "primary": true
+        },
+        {
+          "intent": "cancel_order",
+          "primary": false
+        }
+      ],
+      "category": "refund",
+      "issue": "Pelanggan meminta konfirmasi bahwa dana akan dikembalikan secara otomatis setelah pembatalan pesanan berhasil diproses oleh sistem. Pesanan dibatalkan sebelum memasuki tahap pemrosesan oleh penjual.",
+      "resolution": "Agen mengonfirmasi bahwa pembatalan pesanan telah berhasil diproses dan refund otomatis langsung diinisiasi oleh sistem tanpa memerlukan pengajuan manual dari pelanggan. Dana sejumlah nilai pesanan akan masuk ke saldo dompet digital dalam 3 hari kerja sesuai kebijakan refund platform. Pelanggan diberikan nomor referensi refund untuk keperluan pemantauan status pencairan.",
+      "root_cause": "Pembatalan pesanan yang berhasil diproses sebelum tahap konfirmasi penjual memicu mekanisme refund otomatis sesuai alur sistem platform.",
+      "escalated": false,
+      "resolved_in": "2 jam",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-015",
+      "order_id": "ORD-2026-6451",
+      "assigned_to": "Agent Maya",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-016",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "return_request",
+          "primary": true
+        },
+        {
+          "intent": "get_refund",
+          "primary": false
+        }
+      ],
+      "category": "retur",
+      "issue": "Produk yang diterima tidak sesuai dengan pesanan karena penjual mengirimkan barang yang berbeda dari yang dipesan. Pelanggan mengajukan permintaan retur dan refund penuh atas kesalahan pengiriman tersebut.",
+      "resolution": "Agen memverifikasi bukti foto produk yang diterima dan mengonfirmasi adanya ketidaksesuaian dengan detail pesanan yang tercatat di sistem. Pengajuan retur disetujui dan label pengiriman retur diterbitkan untuk pengembalian produk kepada penjual menggunakan kurir yang telah ditentukan platform. Setelah penjual mengonfirmasi penerimaan produk retur, refund penuh diproses ke saldo dompet digital pelanggan dalam 3 hari kerja.",
+      "root_cause": "Penjual melakukan kesalahan dalam proses pengemasan dan pengiriman sehingga produk yang dikirimkan tidak sesuai dengan pesanan yang tercatat.",
+      "escalated": false,
+      "resolved_in": "4 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-016",
+      "order_id": "ORD-2026-8564",
+      "assigned_to": "Agent Fajar",
+      "status": "closed"
+    },
+    {
+      "doc_id": "ticket-017",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "return_request",
+          "primary": true
+        },
+        {
+          "intent": "seller_complaint",
+          "primary": false
+        }
+      ],
+      "category": "retur",
+      "issue": "Penjual menolak menerima pengembalian produk yang terbukti memiliki cacat produksi meskipun pengajuan retur telah memenuhi seluruh persyaratan yang ditetapkan platform. Pelanggan meminta intervensi dari pihak platform untuk menyelesaikan sengketa retur tersebut.",
+      "resolution": "Agen mendokumentasikan penolakan retur oleh penjual dan meneruskan kasus ke tim penanganan sengketa platform setelah verifikasi bukti cacat produk dinyatakan valid. Tim platform memutuskan retur wajib diterima oleh penjual berdasarkan kebijakan garansi produk cacat dan memfasilitasi proses pengembalian paket. Refund penuh diberikan kepada pelanggan dalam 5 hari kerja dan penjual menerima sanksi pemotongan penilaian toko atas pelanggaran kebijakan.",
+      "root_cause": "Penjual menolak kewajiban penerimaan retur produk cacat yang secara kebijakan platform merupakan tanggung jawab penuh pihak penjual.",
+      "escalated": true,
+      "resolved_in": "5 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-017",
+      "order_id": "ORD-2026-1143",
+      "assigned_to": "Agent Lestari",
+      "status": "escalated"
+    },
+    {
+      "doc_id": "ticket-018",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "return_request",
+          "primary": true
+        },
+        {
+          "intent": "check_refund_policy",
+          "primary": false
+        }
+      ],
+      "category": "retur",
+      "issue": "Pelanggan mengajukan permintaan retur atas produk yang dibeli melalui program flash sale dengan alasan ketidakpuasan terhadap produk yang diterima. Pengajuan retur tidak dapat diproses oleh sistem dan pelanggan meminta penjelasan lebih lanjut.",
+      "resolution": "Agen menjelaskan bahwa produk yang dibeli melalui program flash sale termasuk dalam kategori pengecualian kebijakan retur platform sehingga permintaan retur tidak dapat diproses dalam kondisi apapun kecuali terdapat cacat produksi yang dapat dibuktikan. Pelanggan diberikan informasi mengenai daftar lengkap pengecualian retur mencakup produk flash sale, produk digital, dan produk makanan sesuai ketentuan yang berlaku. Pengajuan retur dinyatakan tidak dapat dilanjutkan dan pelanggan diminta membaca kebijakan pembelian sebelum bertransaksi di program promosi.",
+      "root_cause": "Pelanggan tidak mengetahui bahwa produk yang dibeli melalui program flash sale dikecualikan dari kebijakan retur standar platform.",
+      "escalated": false,
+      "resolved_in": "2 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-018",
+      "order_id": "ORD-2026-9026",
+      "assigned_to": "Agent Hendra",
+      "status": "closed"
+    },
+    {
+      "doc_id": "ticket-019",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "return_request",
+          "primary": true
+        },
+        {
+          "intent": "delivery_period",
+          "primary": false
+        }
+      ],
+      "category": "retur",
+      "issue": "Paket retur yang telah dikirimkan oleh pelanggan mengalami keterlambatan signifikan dalam proses pengiriman menuju lokasi penjual sehingga batas waktu penerimaan retur terancam terlampaui. Pelanggan meminta kepastian bahwa status retur tidak akan dibatalkan akibat keterlambatan kurir.",
+      "resolution": "Agen melakukan pengecekan status pengiriman paket retur melalui nomor resi yang diberikan pelanggan dan mengonfirmasi bahwa keterlambatan disebabkan oleh kendala operasional pada jaringan kurir JNE. Platform memberikan perpanjangan batas waktu penerimaan retur secara otomatis untuk mengakomodasi keterlambatan yang terjadi di luar kendali pelanggan. Penjual diinformasikan mengenai estimasi kedatangan paket retur yang diperbarui dan diminta untuk tetap menerima paket sesuai pengajuan yang telah disetujui.",
+      "root_cause": "Keterlambatan pengiriman paket retur oleh kurir akibat gangguan operasional jaringan distribusi yang menyebabkan potensi pelanggaran batas waktu penerimaan retur.",
+      "escalated": false,
+      "resolved_in": "3 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-019",
+      "order_id": "ORD-2026-4588",
+      "assigned_to": "Agent Wulan",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-020",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "return_request",
+          "primary": true
+        },
+        {
+          "intent": "get_refund",
+          "primary": false
+        }
+      ],
+      "category": "retur",
+      "issue": "Produk yang diterima memiliki spesifikasi yang berbeda secara signifikan dari deskripsi yang tercantum pada halaman produk di platform. Pelanggan mengajukan retur disertai bukti foto dan meminta refund ke saldo dompet digital.",
+      "resolution": "Agen memverifikasi bukti foto yang dikirimkan pelanggan dan membandingkan kondisi produk dengan deskripsi yang tercatat pada halaman produk, kemudian mengonfirmasi adanya ketidaksesuaian yang dapat dipertanggungjawabkan. Pengajuan retur disetujui dan pelanggan diarahkan untuk mengirimkan produk kembali ke penjual dalam kemasan tersegel beserta label asli menggunakan kurir yang telah ditunjuk dalam waktu maksimal 7 hari sejak persetujuan. Setelah penerimaan produk retur dikonfirmasi oleh penjual, refund penuh diproses ke saldo dompet digital pelanggan dalam 3 hari kerja.",
+      "root_cause": "Deskripsi produk pada halaman toko tidak mencerminkan kondisi aktual produk yang dikirimkan kepada pelanggan sehingga menimbulkan ketidaksesuaian ekspektasi.",
+      "escalated": false,
+      "resolved_in": "3 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-020",
+      "order_id": "ORD-2026-8834",
+      "assigned_to": "Agent Rizky",
+      "status": "in_progress"
+    },
+    {
+      "doc_id": "ticket-021",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "payment_issue",
+          "primary": true
+        },
+        {
+          "intent": "cancel_order",
+          "primary": false
+        }
+      ],
+      "category": "pembayaran",
+      "issue": "Pembayaran pesanan dinyatakan gagal oleh sistem namun saldo dompet digital pelanggan telah terpotong sejumlah nilai transaksi. Pelanggan meminta klarifikasi status pesanan dan kepastian pengembalian saldo yang terpotong.",
+      "resolution": "Agen menelusuri log transaksi pada sistem dan mengonfirmasi bahwa kegagalan pembayaran disebabkan oleh gangguan koneksi sementara antara platform dan penyedia dompet digital. Saldo yang terpotong telah diinisiasi untuk dikembalikan secara otomatis oleh sistem dalam rentang waktu 1 hingga 3 jam sejak transaksi gagal tercatat. Pesanan dinyatakan tidak aktif akibat kegagalan pembayaran dan pelanggan disarankan untuk melakukan pemesanan ulang setelah saldo dipastikan kembali.",
+      "root_cause": "Gangguan koneksi sementara antara sistem platform dan gateway pembayaran dompet digital menyebabkan transaksi gagal diproses namun saldo sempat terdebit.",
+      "escalated": false,
+      "resolved_in": "3 jam",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-021",
+      "order_id": "ORD-2026-6410",
+      "assigned_to": "Agent Rina",
+      "status": "closed"
+    },
+    {
+      "doc_id": "ticket-022",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "payment_issue",
+          "primary": true
+        },
+        {
+          "intent": "get_refund",
+          "primary": false
+        }
+      ],
+      "category": "pembayaran",
+      "issue": "Pelanggan mendapati bahwa kartu kredit ditagihkan dua kali untuk satu transaksi yang sama pada waktu yang berdekatan. Bukti mutasi rekening kartu kredit telah dilampirkan sebagai pendukung laporan double charge tersebut.",
+      "resolution": "Agen memverifikasi data transaksi pada sistem dan mengonfirmasi adanya duplikasi tagihan yang terjadi akibat kegagalan respons dari payment gateway pada percobaan pertama. Kasus dieskalasi ke tim keuangan untuk pemrosesan refund manual atas kelebihan tagihan yang teridentifikasi. Refund sejumlah satu kali nilai transaksi dijadwalkan dikembalikan ke kartu kredit pelanggan dalam 2 hari kerja dan pelanggan diberikan nomor referensi klaim untuk pemantauan.",
+      "root_cause": "Kegagalan respons payment gateway pada percobaan transaksi pertama memicu sistem melakukan pemrosesan ulang sehingga menghasilkan dua tagihan untuk satu transaksi yang sama.",
+      "escalated": true,
+      "resolved_in": "2 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-022",
+      "order_id": "ORD-2026-3816",
+      "assigned_to": "Agent Budi",
+      "status": "escalated"
+    },
+    {
+      "doc_id": "ticket-023",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "payment_issue",
+          "primary": true
+        },
+        {
+          "intent": "check_payment_options",
+          "primary": false
+        }
+      ],
+      "category": "pembayaran",
+      "issue": "Pelanggan mengalami kebingungan dalam memilih metode pembayaran yang tersedia pada halaman checkout dan tidak memahami perbedaan serta persyaratan masing-masing opsi yang ditampilkan. Proses pembayaran terhenti karena ketidakpastian metode yang akan digunakan.",
+      "resolution": "Agen menjelaskan seluruh metode pembayaran yang tersedia di platform mencakup transfer bank, kartu kredit, COD, dompet digital, dan paylater beserta ketentuan penggunaan masing-masing. Berdasarkan kebutuhan pelanggan, agen merekomendasikan transfer bank sebagai metode yang paling sesuai dan memandu langkah-langkah penyelesaian pembayaran hingga konfirmasi transaksi berhasil diterima sistem. Pelanggan diberikan informasi mengenai batas waktu pembayaran 24 jam yang berlaku sejak pesanan dibuat.",
+      "root_cause": "Pelanggan tidak memiliki pemahaman yang memadai mengenai pilihan metode pembayaran yang tersedia serta alur penyelesaian transaksi pada platform.",
+      "escalated": false,
+      "resolved_in": "1 jam",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-023",
+      "order_id": "ORD-2026-6730",
+      "assigned_to": "Agent Sari",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-024",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "payment_issue",
+          "primary": true
+        },
+        {
+          "intent": "cancel_order",
+          "primary": false
+        }
+      ],
+      "category": "pembayaran",
+      "issue": "Pesanan yang telah dibuat tidak dapat dilanjutkan karena sistem secara otomatis membatalkan pesanan setelah batas waktu pembayaran 24 jam terlampaui tanpa penyelesaian transaksi. Pelanggan meminta penjelasan dan informasi mengenai kemungkinan pemesanan ulang.",
+      "resolution": "Agen mengonfirmasi bahwa pembatalan pesanan terjadi secara otomatis oleh sistem sesuai kebijakan batas waktu pembayaran 24 jam yang berlaku di platform dan tidak ada dana yang terpotong karena pembayaran tidak pernah diselesaikan. Pelanggan diberikan penjelasan mengenai pentingnya menyelesaikan pembayaran sebelum batas waktu yang ditampilkan pada halaman pesanan. Agen menyarankan pelanggan untuk segera melakukan pemesanan ulang dan menyelesaikan pembayaran dalam satu sesi transaksi.",
+      "root_cause": "Pelanggan tidak menyelesaikan proses pembayaran dalam batas waktu 24 jam yang ditetapkan sistem sehingga pesanan dibatalkan secara otomatis.",
+      "escalated": false,
+      "resolved_in": "30 menit",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-024",
+      "order_id": "ORD-2026-3987",
+      "assigned_to": "Agent Doni",
+      "status": "closed"
+    },
+    {
+      "doc_id": "ticket-025",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "payment_issue",
+          "primary": true
+        },
+        {
+          "intent": "cod_payment",
+          "primary": false
+        }
+      ],
+      "category": "pembayaran",
+      "issue": "Kurir yang mengantarkan pesanan COD tidak membawa uang kembalian atas pembayaran yang diberikan oleh pelanggan sehingga pelanggan terpaksa membayar lebih dari nilai pesanan yang sebenarnya. Pelanggan mengajukan keluhan dan meminta penyelesaian atas selisih pembayaran tersebut.",
+      "resolution": "Agen mencatat keluhan pelanggan dan meneruskan laporan kepada tim mitra logistik untuk ditindaklanjuti bersama kurir yang bersangkutan terkait prosedur penanganan pembayaran COD. Pelanggan disarankan untuk menyiapkan uang pas pada transaksi COD berikutnya guna menghindari kendala serupa, sesuai dengan imbauan standar layanan COD yang berlaku. Agen mengonfirmasi bahwa pengembalian selisih pembayaran akan dikoordinasikan melalui mitra kurir dan pelanggan akan dihubungi kembali dalam 1 hari kerja dengan pembaruan penyelesaian.",
+      "root_cause": "Kurir tidak memenuhi standar operasional layanan COD yang mewajibkan kesiapan uang kembalian pada setiap pengantaran dengan metode pembayaran tunai.",
+      "escalated": false,
+      "resolved_in": "1 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2026-025",
+      "order_id": "ORD-2026-8061",
+      "assigned_to": "Agent Maya",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-026",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "delivery_period",
+          "primary": true
+        },
+        {
+          "intent": "track_order",
+          "primary": false
+        }
+      ],
+      "category": "pengiriman",
+      "issue": "Paket yang dikirimkan melalui kurir JNE belum tiba meskipun estimasi pengiriman yang tertera pada sistem telah terlampaui selama 2 hari. Pelanggan meminta penjelasan mengenai keterlambatan dan estimasi waktu kedatangan yang diperbarui.",
+      "resolution": "Agen melakukan pengecekan status pengiriman dan berkoordinasi dengan pihak JNE untuk memperoleh informasi terkini mengenai posisi paket. Kurir mengonfirmasi bahwa keterlambatan disebabkan oleh kondisi cuaca ekstrem di jalur distribusi yang menghambat operasional pengiriman di beberapa wilayah. Pelanggan diberikan estimasi kedatangan yang diperbarui dan dipastikan paket dalam kondisi aman dalam jaringan pengiriman JNE.",
+      "root_cause": "Kondisi cuaca ekstrem pada jalur distribusi kurir JNE menyebabkan gangguan operasional pengiriman sehingga estimasi kedatangan paket meleset dari jadwal semula.",
+      "escalated": false,
+      "resolved_in": "1 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-026",
+      "order_id": "ORD-2025-8687",
+      "assigned_to": "Agent Fajar",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-027",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "delivery_period",
+          "primary": true
+        },
+        {
+          "intent": "track_order",
+          "primary": false
+        }
+      ],
+      "category": "pengiriman",
+      "issue": "Paket yang dikirimkan ke alamat tujuan di wilayah pedalaman Kalimantan belum tiba setelah melewati estimasi pengiriman yang tertera pada saat pemesanan. Pelanggan mempertanyakan penyebab keterlambatan dan meminta kepastian paket akan sampai ke lokasi tujuan.",
+      "resolution": "Agen menjelaskan bahwa pengiriman ke wilayah terpencil di Kalimantan memerlukan waktu tempuh tambahan di luar estimasi standar karena keterbatasan akses infrastruktur dan ketersediaan armada pengiriman di daerah tersebut. Pengecekan resi dikonfirmasi menunjukkan paket telah tiba di hub terdekat dan sedang dalam proses pengiriman tahap akhir menuju alamat tujuan. Pelanggan diberikan estimasi kedatangan yang diperbarui dengan memperhitungkan kondisi geografis wilayah pengiriman.",
+      "root_cause": "Keterbatasan infrastruktur transportasi dan frekuensi pengiriman ke wilayah terpencil Kalimantan menyebabkan perpanjangan waktu tempuh di luar estimasi pengiriman standar.",
+      "escalated": false,
+      "resolved_in": "2 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-027",
+      "order_id": "ORD-2025-8325",
+      "assigned_to": "Agent Lestari",
+      "status": "in_progress"
+    },
+    {
+      "doc_id": "ticket-028",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "delivery_period",
+          "primary": true
+        },
+        {
+          "intent": "complaint",
+          "primary": false
+        }
+      ],
+      "category": "pengiriman",
+      "issue": "Paket yang dikirimkan melalui kurir SiCepat mengalami keterlambatan lebih dari 5 hari dari estimasi yang dijanjikan tanpa adanya pembaruan status pelacakan selama periode tersebut. Pelanggan menyampaikan keluhan atas keterlambatan signifikan dan ketiadaan informasi dari pihak kurir.",
+      "resolution": "Agen mendokumentasikan keluhan dan mengajukan investigasi resmi kepada pihak SiCepat terkait keterlambatan ekstrem dan tidak adanya pembaruan resi selama 5 hari. Kasus dieskalasi ke tim mitra logistik karena keterlambatan melebihi ambang batas toleransi yang ditetapkan dalam perjanjian layanan kurir. Setelah koordinasi intensif, paket berhasil dilacak dan kurir memberikan konfirmasi jadwal pengiriman ulang dengan kompensasi prioritas kepada pelanggan.",
+      "root_cause": "Kegagalan operasional internal SiCepat menyebabkan paket tertahan tanpa pemrosesan lebih lanjut dan sistem pelacakan tidak diperbarui selama periode keterlambatan berlangsung.",
+      "escalated": true,
+      "resolved_in": "3 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-028",
+      "order_id": "ORD-2025-4666",
+      "assigned_to": "Agent Hendra",
+      "status": "in_progress"
+    },
+    {
+      "doc_id": "ticket-029",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "delivery_period",
+          "primary": true
+        },
+        {
+          "intent": "check_payment_options",
+          "primary": false
+        }
+      ],
+      "category": "pengiriman",
+      "issue": "Pelanggan mempertanyakan perbedaan antara layanan pengiriman reguler dan express yang tersedia melalui Gosend, termasuk perbedaan estimasi waktu tiba dan tarif ongkos kirim yang dikenakan untuk masing-masing layanan.",
+      "resolution": "Agen menjelaskan perbedaan layanan Gosend reguler dan express mencakup estimasi waktu pengiriman, jangkauan area layanan, serta struktur tarif yang berlaku untuk masing-masing pilihan. Pelanggan diberikan informasi bahwa layanan express Gosend menawarkan pengiriman di hari yang sama untuk area tertentu dengan tarif yang lebih tinggi dibandingkan layanan reguler. Agen juga menginformasikan ketentuan minimum pembelian senilai Rp100.000 untuk mendapatkan manfaat gratis ongkir sesuai program yang berlaku di platform.",
+      "root_cause": "Pelanggan tidak memiliki informasi yang cukup mengenai perbedaan spesifikasi dan tarif antara layanan pengiriman reguler dan express pada mitra kurir Gosend.",
+      "escalated": false,
+      "resolved_in": "30 menit",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-029",
+      "order_id": "ORD-2025-4010",
+      "assigned_to": "Agent Wulan",
+      "status": "closed"
+    },
+    {
+      "doc_id": "ticket-030",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "delivery_period",
+          "primary": true
+        },
+        {
+          "intent": "track_order",
+          "primary": false
+        }
+      ],
+      "category": "pengiriman",
+      "issue": "Status pelacakan paket menunjukkan bahwa kiriman produk impor ditahan oleh pihak bea cukai dan tidak ada informasi lebih lanjut mengenai estimasi waktu pelepasan paket. Pelanggan meminta penjelasan mengenai proses yang sedang berlangsung dan tindakan yang perlu dilakukan.",
+      "resolution": "Agen menjelaskan bahwa penahanan di bea cukai merupakan prosedur standar untuk produk impor yang memerlukan verifikasi dokumen dan penilaian bea masuk sesuai ketentuan yang berlaku. Pelanggan diarahkan untuk mempersiapkan dokumen identitas dan informasi nilai barang apabila pihak bea cukai memerlukan klarifikasi langsung dari penerima paket. Agen memantau perkembangan status pelacakan dan mengonfirmasi kepada pelanggan bahwa paket akan kembali diproses untuk pengiriman setelah prosedur bea cukai diselesaikan dalam estimasi 1 hari kerja.",
+      "root_cause": "Paket produk impor memasuki proses pemeriksaan wajib oleh otoritas bea cukai untuk verifikasi dokumen dan perhitungan bea masuk sesuai regulasi yang berlaku.",
+      "escalated": false,
+      "resolved_in": "1 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-030",
+      "order_id": "ORD-2025-6889",
+      "assigned_to": "Agent Rizky",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-031",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "seller_complaint",
+          "primary": true
+        },
+        {
+          "intent": "return_request",
+          "primary": false
+        }
+      ],
+      "category": "komplain",
+      "issue": "Produk yang diterima diduga merupakan barang palsu dengan kualitas dan detail fisik yang jauh berbeda dari produk asli yang seharusnya dijual oleh penjual. Pelanggan melaporkan dugaan pemalsuan produk disertai bukti foto perbandingan yang dikirimkan kepada tim platform.",
+      "resolution": "Agen mendokumentasikan laporan dan meneruskan kasus ke tim investigasi platform untuk verifikasi keaslian produk berdasarkan bukti yang dikirimkan pelanggan. Setelah investigasi selesai dan pemalsuan produk terkonfirmasi, pengajuan retur disetujui secara otomatis tanpa biaya pengiriman dan refund penuh diproses ke saldo dompet digital pelanggan. Toko penjual dikenakan sanksi penangguhan operasional sementara dan kasusnya diteruskan ke divisi kepatuhan platform untuk tindakan lebih lanjut.",
+      "root_cause": "Penjual terbukti memasarkan dan mengirimkan produk palsu yang tidak sesuai dengan klaim keaslian yang tercantum pada halaman listing toko.",
+      "escalated": true,
+      "resolved_in": "3 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-031",
+      "order_id": "ORD-2025-8859",
+      "assigned_to": "Agent Rina",
+      "status": "escalated"
+    },
+    {
+      "doc_id": "ticket-032",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "seller_complaint",
+          "primary": true
+        },
+        {
+          "intent": "track_order",
+          "primary": false
+        }
+      ],
+      "category": "komplain",
+      "issue": "Pesanan yang telah dibayar lunas tidak kunjung diproses oleh penjual setelah melewati 2 hari kerja dari waktu pembayaran dikonfirmasi. Status pesanan masih menunjukkan menunggu konfirmasi penjual tanpa adanya perubahan.",
+      "resolution": "Agen mengirimkan notifikasi peringatan kepada penjual melalui sistem internal platform untuk segera memproses pesanan yang tertunda. Penjual merespons dan mengonfirmasi pesanan akan segera diproses serta diserahkan ke kurir pada hari yang sama. Pelanggan diberikan informasi pembaruan status pesanan dan estimasi pengiriman yang baru berdasarkan konfirmasi dari penjual.",
+      "root_cause": "Penjual tidak memproses pesanan dalam batas waktu operasional yang ditetapkan platform akibat kelalaian pengelolaan antrean pesanan masuk.",
+      "escalated": false,
+      "resolved_in": "1 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-032",
+      "order_id": "ORD-2025-6907",
+      "assigned_to": "Agent Budi",
+      "status": "closed"
+    },
+    {
+      "doc_id": "ticket-033",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "seller_complaint",
+          "primary": true
+        },
+        {
+          "intent": "get_refund",
+          "primary": false
+        }
+      ],
+      "category": "komplain",
+      "issue": "Produk yang diterima dalam kondisi rusak namun penjual tidak memberikan respons apapun terhadap pesan dan pengajuan komplain yang dikirimkan pelanggan selama lebih dari 2 hari. Pelanggan meminta intervensi platform untuk memproses refund atas produk rusak tersebut.",
+      "resolution": "Agen memverifikasi riwayat komunikasi antara pelanggan dan penjual pada sistem dan mengonfirmasi tidak adanya respons dari pihak penjual dalam rentang waktu yang melebihi standar yang ditetapkan platform. Kasus dieskalasi ke tim penanganan sengketa dan refund penuh diputuskan untuk diproses langsung oleh platform tanpa menunggu persetujuan penjual berdasarkan bukti kerusakan yang valid. Penjual menerima peringatan tingkat kedua atas pelanggaran kewajiban responsivitas dan penanganan komplain pembeli.",
+      "root_cause": "Penjual tidak memenuhi kewajiban merespons komplain pembeli dalam batas waktu yang ditetapkan platform sehingga penyelesaian sengketa harus diambil alih oleh tim platform.",
+      "escalated": true,
+      "resolved_in": "4 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-033",
+      "order_id": "ORD-2025-5179",
+      "assigned_to": "Agent Sari",
+      "status": "escalated"
+    },
+    {
+      "doc_id": "ticket-034",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "seller_complaint",
+          "primary": true
+        },
+        {
+          "intent": "complaint",
+          "primary": false
+        }
+      ],
+      "category": "komplain",
+      "issue": "Produk yang diterima memiliki tampilan fisik yang berbeda secara signifikan dari foto yang ditampilkan pada halaman listing toko penjual. Pelanggan merasa tertipu oleh representasi visual produk yang menyesatkan dan mengajukan keluhan resmi kepada platform.",
+      "resolution": "Agen membandingkan foto produk pada halaman listing dengan bukti foto produk yang diterima pelanggan dan mengonfirmasi adanya ketidaksesuaian yang tidak dapat dibenarkan. Laporan diteruskan ke tim moderasi konten platform untuk peninjauan dan pembaruan paksa terhadap foto listing yang menyesatkan pada toko penjual. Pelanggan diberikan informasi mengenai opsi pengajuan retur berdasarkan ketidaksesuaian deskripsi produk apabila ingin melanjutkan proses pengembalian barang.",
+      "root_cause": "Penjual menampilkan foto produk pada halaman listing yang tidak merepresentasikan kondisi aktual produk yang dikirimkan kepada pembeli.",
+      "escalated": false,
+      "resolved_in": "2 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-034",
+      "order_id": "ORD-2025-5108",
+      "assigned_to": "Agent Doni",
+      "status": "closed"
+    },
+    {
+      "doc_id": "ticket-035",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "seller_complaint",
+          "primary": true
+        },
+        {
+          "intent": "cancel_order",
+          "primary": false
+        }
+      ],
+      "category": "komplain",
+      "issue": "Pesanan yang telah dikonfirmasi dan dibayar lunas dibatalkan secara sepihak oleh penjual tanpa pemberitahuan maupun alasan yang disampaikan kepada pelanggan. Pelanggan mempertanyakan alasan pembatalan dan meminta kepastian pengembalian dana.",
+      "resolution": "Agen mengonfirmasi bahwa pembatalan dilakukan secara sepihak oleh penjual dan mencatat tindakan tersebut sebagai pelanggaran terhadap kebijakan operasional toko yang berlaku di platform. Refund penuh diinisiasi secara otomatis ke saldo dompet digital pelanggan dalam 3 hari kerja sebagai konsekuensi pembatalan sepihak oleh penjual. Penjual menerima peringatan resmi dan catatan pelanggaran pada profil toko yang berdampak pada penurunan peringkat performa penjual di platform.",
+      "root_cause": "Penjual melakukan pembatalan pesanan secara sepihak tanpa alasan yang dapat diverifikasi sehingga melanggar ketentuan kewajiban pemenuhan pesanan yang telah dikonfirmasi.",
+      "escalated": false,
+      "resolved_in": "1 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-035",
+      "order_id": "ORD-2025-3094",
+      "assigned_to": "Agent Maya",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-036",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "check_voucher",
+          "primary": true
+        },
+        {
+          "intent": "payment_issue",
+          "primary": false
+        }
+      ],
+      "category": "voucher",
+      "issue": "Voucher diskon yang dimiliki pelanggan tidak dapat diterapkan pada saat proses checkout dan sistem menampilkan notifikasi bahwa kode voucher tidak valid. Pelanggan meminta penjelasan mengenai penyebab voucher tidak dapat digunakan.",
+      "resolution": "Agen memeriksa detail ketentuan voucher yang digunakan dan menemukan bahwa total nilai belanja pelanggan berada di bawah batas minimum pembelian yang disyaratkan untuk aktivasi voucher tersebut. Pelanggan diberikan informasi mengenai nilai minimum pembelian yang harus dipenuhi agar voucher dapat diterapkan pada transaksi. Agen menyarankan pelanggan untuk menambahkan produk ke keranjang belanja hingga mencapai nilai minimum yang dipersyaratkan sebelum menggunakan voucher pada saat checkout.",
+      "root_cause": "Total nilai transaksi pelanggan tidak memenuhi batas minimum pembelian yang ditetapkan sebagai syarat penggunaan voucher diskon yang bersangkutan.",
+      "escalated": false,
+      "resolved_in": "30 menit",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-036",
+      "order_id": "ORD-2025-4367",
+      "assigned_to": "Agent Fajar",
+      "status": "closed"
+    },
+    {
+      "doc_id": "ticket-037",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "check_voucher",
+          "primary": true
+        },
+        {
+          "intent": "complaint",
+          "primary": false
+        }
+      ],
+      "category": "voucher",
+      "issue": "Voucher yang diperoleh pelanggan dari program promosi platform tidak dapat digunakan karena status voucher menunjukkan telah kedaluwarsa sebelum pelanggan sempat memanfaatkannya. Pelanggan menyampaikan keluhan dan meminta pertimbangan perpanjangan atau penggantian voucher.",
+      "resolution": "Agen memverifikasi riwayat voucher pada akun pelanggan dan mengonfirmasi bahwa masa berlaku voucher memang telah berakhir sesuai ketentuan periode promosi yang ditetapkan oleh platform. Perpanjangan masa berlaku voucher tidak dapat dilakukan karena kebijakan platform menetapkan bahwa voucher yang telah kedaluwarsa tidak dapat dipulihkan atau digantikan. Pelanggan diarahkan untuk memantau program voucher aktif yang tersedia pada halaman promo platform dan diberikan informasi mengenai cara memperoleh voucher baru pada periode promosi berikutnya.",
+      "root_cause": "Pelanggan tidak menggunakan voucher sebelum batas masa berlaku yang telah ditetapkan pada saat voucher diterbitkan dalam program promosi platform.",
+      "escalated": false,
+      "resolved_in": "1 jam",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-037",
+      "order_id": "ORD-2025-3565",
+      "assigned_to": "Agent Lestari",
+      "status": "closed"
+    },
+    {
+      "doc_id": "ticket-038",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "flash_sale_info",
+          "primary": true
+        },
+        {
+          "intent": "check_stock",
+          "primary": false
+        }
+      ],
+      "category": "promo",
+      "issue": "Produk yang ingin dibeli pada program flash sale tidak dapat ditambahkan ke keranjang karena stok telah habis sebelum pelanggan menyelesaikan proses checkout. Pelanggan mempertanyakan apakah stok flash sale akan diisi ulang dan kapan produk tersebut dapat dibeli kembali.",
+      "resolution": "Agen menjelaskan bahwa stok produk pada program flash sale bersifat terbatas dan tidak dilakukan pengisian ulang dalam sesi yang sama setelah stok habis terjual. Pelanggan diberikan informasi bahwa produk serupa dapat tersedia kembali pada sesi flash sale berikutnya dan disarankan untuk mengaktifkan fitur notifikasi produk agar mendapatkan pemberitahuan saat flash sale berikutnya dimulai. Agen juga menginformasikan bahwa pembelian produk dengan harga normal tetap dapat dilakukan melalui halaman toko penjual yang bersangkutan.",
+      "root_cause": "Tingginya permintaan terhadap produk flash sale menyebabkan stok terbatas habis terjual sebelum seluruh pelanggan yang berminat dapat menyelesaikan proses checkout.",
+      "escalated": false,
+      "resolved_in": "30 menit",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-038",
+      "order_id": "ORD-2025-3557",
+      "assigned_to": "Agent Hendra",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-039",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "check_voucher",
+          "primary": true
+        },
+        {
+          "intent": "check_refund_policy",
+          "primary": false
+        }
+      ],
+      "category": "voucher",
+      "issue": "Pelanggan mengajukan pertanyaan mengenai status voucher yang digunakan pada transaksi yang kemudian diajukan refund, khususnya apakah voucher tersebut dapat digunakan kembali setelah proses refund berhasil diselesaikan.",
+      "resolution": "Agen menjelaskan kebijakan platform mengenai voucher pada transaksi yang direfund, yaitu voucher yang telah digunakan pada transaksi yang direfund tidak secara otomatis dikembalikan ke akun pelanggan dan dinyatakan hangus setelah refund diproses. Refund yang diberikan kepada pelanggan dihitung berdasarkan nilai aktual yang dibayarkan setelah potongan voucher diterapkan, bukan nilai produk penuh sebelum diskon. Pelanggan disarankan untuk memantau program voucher yang aktif pada platform guna memperoleh voucher baru untuk transaksi berikutnya.",
+      "root_cause": "Pelanggan tidak memiliki pemahaman yang memadai mengenai ketentuan penanganan voucher pada transaksi yang mengalami proses refund sesuai kebijakan platform.",
+      "escalated": false,
+      "resolved_in": "1 jam",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-039",
+      "order_id": "ORD-2025-1965",
+      "assigned_to": "Agent Wulan",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-040",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "flash_sale_info",
+          "primary": true
+        },
+        {
+          "intent": "payment_issue",
+          "primary": false
+        }
+      ],
+      "category": "promo",
+      "issue": "Harga diskon flash sale yang ditampilkan pada halaman produk tidak teraplikasi pada saat pelanggan melanjutkan ke halaman checkout meskipun stok produk masih tersedia. Total tagihan yang muncul pada halaman pembayaran mencerminkan harga normal tanpa potongan flash sale.",
+      "resolution": "Agen menelusuri laporan dan menemukan adanya ketidaksesuaian antara harga yang ditampilkan pada halaman produk dengan harga yang diproses pada sistem checkout akibat gangguan sinkronisasi harga promo. Pelanggan diarahkan untuk mengosongkan keranjang belanja, memuat ulang halaman produk, dan menambahkan produk kembali ke keranjang guna memastikan harga flash sale yang diperbarui terbaca oleh sistem checkout. Setelah langkah tersebut dilakukan, harga flash sale berhasil teraplikasi dengan benar dan pelanggan dapat menyelesaikan transaksi dengan harga promo yang sesuai.",
+      "root_cause": "Gangguan sinkronisasi antara sistem tampilan harga promo flash sale dan mesin kalkulasi harga pada halaman checkout menyebabkan harga diskon tidak teraplikasi secara otomatis.",
+      "escalated": false,
+      "resolved_in": "2 jam",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-040",
+      "order_id": "ORD-2025-1442",
+      "assigned_to": "Agent Rizky",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-041",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "edit_account",
+          "primary": true
+        },
+        {
+          "intent": "escalate_to_human",
+          "primary": false
+        }
+      ],
+      "category": "akun",
+      "issue": "Pelanggan tidak dapat mengganti nomor telepon yang terdaftar pada akun karena proses verifikasi OTP ke nomor baru terus mengalami kegagalan meskipun telah dilakukan beberapa kali percobaan. Pelanggan meminta bantuan langsung dari agen untuk menyelesaikan pembaruan data tersebut.",
+      "resolution": "Agen memeriksa log verifikasi pada akun pelanggan dan menemukan bahwa kegagalan OTP disebabkan oleh nomor tujuan yang terindikasi memiliki pembatasan penerimaan pesan dari layanan tertentu. Agen memandu pelanggan melalui jalur verifikasi alternatif menggunakan konfirmasi via email terdaftar sebagai pengganti OTP untuk memvalidasi perubahan nomor telepon. Setelah identitas pelanggan berhasil diverifikasi, pembaruan nomor telepon pada akun berhasil disimpan dan pelanggan diminta melakukan pengujian login ulang.",
+      "root_cause": "Pembatasan penerimaan pesan OTP pada nomor telepon tujuan menyebabkan proses verifikasi perubahan data akun tidak dapat diselesaikan melalui jalur standar.",
+      "escalated": false,
+      "resolved_in": "1 jam",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-041",
+      "order_id": "ORD-2025-5190",
+      "assigned_to": "Agent Rina",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-042",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "delete_account",
+          "primary": true
+        },
+        {
+          "intent": "escalate_to_human",
+          "primary": false
+        }
+      ],
+      "category": "akun",
+      "issue": "Pelanggan mengajukan permintaan penghapusan akun secara permanen beserta seluruh data pribadi yang tersimpan di platform sesuai hak penghapusan data yang berlaku. Permintaan tidak dapat diproses secara mandiri melalui aplikasi dan pelanggan meminta bantuan langsung dari tim platform.",
+      "resolution": "Agen menerima permintaan dan meneruskan kasus ke tim pengelolaan data pengguna karena penghapusan akun beserta seluruh data pribadi memerlukan verifikasi identitas tingkat lanjut dan persetujuan dari divisi kepatuhan data platform. Kasus dieskalasi untuk memastikan proses penghapusan dilakukan sesuai regulasi perlindungan data yang berlaku dan seluruh jejak data pelanggan dihapus dari sistem secara menyeluruh. Pelanggan diberikan konfirmasi tertulis bahwa permintaan telah diterima dan proses penghapusan akan diselesaikan dalam 2 hari kerja disertai notifikasi final setelah selesai.",
+      "root_cause": "Proses penghapusan akun dan data pribadi secara permanen memerlukan alur verifikasi dan persetujuan berlapis yang tidak tersedia melalui fitur swalayan pada aplikasi.",
+      "escalated": true,
+      "resolved_in": "2 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-042",
+      "order_id": "ORD-2025-9525",
+      "assigned_to": "Agent Budi",
+      "status": "in_progress"
+    },
+    {
+      "doc_id": "ticket-043",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "escalate_to_human",
+          "primary": true
+        },
+        {
+          "intent": "complaint",
+          "primary": false
+        }
+      ],
+      "category": "eskalasi",
+      "issue": "Pelanggan dengan status VIP menyatakan ketidakpuasan terhadap kualitas respons yang diberikan oleh sistem otomatis dan secara tegas meminta untuk dihubungkan dengan agen senior yang memiliki kewenangan penuh untuk menyelesaikan permasalahan yang dihadapi. Pelanggan merasa permasalahannya tidak tertangani dengan tepat melalui jalur layanan standar.",
+      "resolution": "Agen mengidentifikasi status VIP pelanggan pada sistem dan segera mengalihkan percakapan ke agen senior yang memiliki akses penuh terhadap riwayat transaksi dan kewenangan penyelesaian kasus prioritas. Agen senior melakukan peninjauan menyeluruh terhadap riwayat interaksi dan permasalahan yang dilaporkan pelanggan serta memberikan solusi konkret yang disesuaikan dengan kebutuhan spesifik pelanggan VIP. Pelanggan menerima konfirmasi penyelesaian dan ditawarkan kompensasi berupa voucher prioritas sebagai bentuk apresiasi atas ketidaknyamanan yang dialami.",
+      "root_cause": "Sistem layanan otomatis tidak mampu menangani kompleksitas permasalahan yang diajukan pelanggan VIP sehingga memerlukan intervensi langsung dari agen dengan kewenangan dan kapabilitas yang lebih tinggi.",
+      "escalated": true,
+      "resolved_in": "1 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-043",
+      "order_id": "ORD-2025-5050",
+      "assigned_to": "Agent Sari",
+      "status": "in_progress"
+    },
+    {
+      "doc_id": "ticket-044",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "escalate_to_human",
+          "primary": true
+        },
+        {
+          "intent": "get_refund",
+          "primary": false
+        }
+      ],
+      "category": "eskalasi",
+      "issue": "Proses refund yang diajukan pelanggan tidak menunjukkan penyelesaian setelah melewati 2 minggu sejak pengajuan pertama dilakukan dan berbagai upaya tindak lanjut melalui jalur layanan standar tidak menghasilkan perkembangan yang berarti. Pelanggan meminta eskalasi langsung ke tingkat manajemen untuk penyelesaian segera.",
+      "resolution": "Agen mendokumentasikan seluruh riwayat penanganan kasus refund selama 2 minggu terakhir dan meneruskan eskalasi ke tingkat manajemen layanan pelanggan beserta catatan kronologi lengkap. Tim manajemen melakukan investigasi internal terhadap penyebab stagnasi proses refund dan mengidentifikasi adanya kesalahan routing kasus pada sistem antrean penanganan. Refund penuh diproses secara prioritas oleh tim keuangan dan dana masuk ke rekening bank pelanggan dalam 3 hari kerja disertai permintaan maaf resmi dari pihak platform.",
+      "root_cause": "Kesalahan routing kasus pada sistem antrean penanganan internal menyebabkan proses refund tidak ditangani oleh tim yang berwenang selama periode yang tidak semestinya.",
+      "escalated": true,
+      "resolved_in": "3 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-044",
+      "order_id": "ORD-2025-7971",
+      "assigned_to": "Agent Doni",
+      "status": "in_progress"
+    },
+    {
+      "doc_id": "ticket-045",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "create_account",
+          "primary": true
+        },
+        {
+          "intent": "edit_account",
+          "primary": false
+        }
+      ],
+      "category": "akun",
+      "issue": "Pendaftaran akun baru tidak dapat diselesaikan karena sistem mendeteksi bahwa alamat email yang digunakan telah terdaftar pada akun lain di platform. Pelanggan menyatakan tidak merasa pernah mendaftarkan email tersebut sebelumnya dan meminta bantuan untuk menyelesaikan proses registrasi.",
+      "resolution": "Agen memverifikasi status email yang bersangkutan pada sistem dan mengonfirmasi bahwa alamat email tersebut memang telah terasosiasi dengan akun yang pernah dibuat sebelumnya pada platform. Pelanggan diarahkan untuk menggunakan fitur lupa kata sandi guna memulihkan akses ke akun yang sudah ada menggunakan email yang sama alih-alih membuat akun baru. Apabila pelanggan tidak mengenali akun tersebut, agen menyarankan penggunaan alamat email alternatif untuk proses pendaftaran akun baru.",
+      "root_cause": "Alamat email yang digunakan pelanggan untuk pendaftaran telah terdaftar pada akun yang ada di sistem platform sehingga proses pembuatan akun baru tidak dapat dilanjutkan.",
+      "escalated": false,
+      "resolved_in": "30 menit",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-045",
+      "order_id": "ORD-2025-9627",
+      "assigned_to": "Agent Maya",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-046",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "complaint",
+          "primary": true
+        },
+        {
+          "intent": "escalate_to_human",
+          "primary": false
+        }
+      ],
+      "category": "komplain",
+      "issue": "Pelanggan menyampaikan keluhan dengan nada tidak puas karena permasalahan yang sama telah dilaporkan lebih dari satu kali namun tidak kunjung mendapatkan penyelesaian yang tuntas dari tim layanan pelanggan. Pelanggan secara tegas meminta penanganan langsung oleh agen dengan kewenangan penuh untuk mengakhiri permasalahan yang berulang tersebut.",
+      "resolution": "Agen mengidentifikasi riwayat tiket sebelumnya yang berkaitan dengan permasalahan serupa dan mengonfirmasi bahwa penanganan sebelumnya tidak diselesaikan secara menyeluruh akibat koordinasi antardivisi yang tidak optimal. Kasus dieskalasi ke supervisor layanan pelanggan yang mengambil alih penanganan secara langsung dan memberikan komitmen penyelesaian dengan tenggat waktu yang jelas kepada pelanggan. Supervisor menyelesaikan akar permasalahan secara tuntas, menyampaikan permintaan maaf resmi, dan memberikan kompensasi berupa voucher belanja sebagai bentuk pertanggungjawaban atas ketidaknyamanan yang berulang.",
+      "root_cause": "Penanganan tiket sebelumnya tidak menyentuh akar permasalahan dan tidak disertai mekanisme tindak lanjut yang memadai sehingga permasalahan yang sama terus berulang tanpa penyelesaian yang tuntas.",
+      "escalated": true,
+      "resolved_in": "2 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-046",
+      "order_id": "ORD-2025-2705",
+      "assigned_to": "Agent Fajar",
+      "status": "escalated"
+    },
+    {
+      "doc_id": "ticket-047",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "cod_payment",
+          "primary": true
+        },
+        {
+          "intent": "cancel_order",
+          "primary": false
+        }
+      ],
+      "category": "pembayaran",
+      "issue": "Pelanggan menolak menerima paket COD pada saat pengantaran karena kondisi kemasan luar terlihat rusak dan mengkhawatirkan kondisi produk di dalamnya. Pelanggan meminta kepastian mengenai status pesanan dan proses selanjutnya setelah penolakan paket dilakukan.",
+      "resolution": "Agen mengonfirmasi bahwa penolakan paket COD dengan kondisi kemasan rusak merupakan hak pelanggan yang dilindungi oleh kebijakan platform dan tidak dikenakan penalti apapun. Paket yang ditolak akan dikembalikan ke penjual oleh kurir dan proses pembatalan pesanan diinisiasi secara otomatis tanpa kewajiban pembayaran dari pihak pelanggan karena transaksi COD tidak pernah diselesaikan. Pelanggan disarankan untuk mendokumentasikan kondisi kemasan melalui foto sebelum penolakan sebagai bukti pendukung apabila diperlukan untuk pengajuan klaim lebih lanjut.",
+      "root_cause": "Kerusakan kemasan paket yang terjadi selama proses pengiriman oleh kurir menyebabkan pelanggan menolak penerimaan barang pada saat pengantaran COD.",
+      "escalated": false,
+      "resolved_in": "1 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-047",
+      "order_id": "ORD-2025-2065",
+      "assigned_to": "Agent Lestari",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-048",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "complaint",
+          "primary": true
+        },
+        {
+          "intent": "delivery_period",
+          "primary": false
+        }
+      ],
+      "category": "komplain",
+      "issue": "Pelanggan menyampaikan keluhan bahwa estimasi waktu pengiriman yang ditampilkan pada halaman produk saat pembelian tidak sesuai dengan waktu aktual pengiriman yang dialami. Perbedaan antara estimasi yang tertera dan realisasi pengiriman dinilai cukup signifikan sehingga menimbulkan ketidakpuasan.",
+      "resolution": "Agen menerima keluhan dan menjelaskan bahwa estimasi pengiriman yang ditampilkan pada halaman produk merupakan perkiraan berdasarkan kondisi normal dan dapat berubah tergantung pada faktor operasional kurir serta kondisi wilayah pengiriman. Laporan ketidakakuratan estimasi diteruskan ke tim pengembangan platform sebagai masukan untuk peningkatan akurasi kalkulasi estimasi pengiriman yang ditampilkan kepada pelanggan. Pelanggan diberikan informasi mengenai cara memantau status pengiriman secara real-time melalui fitur pelacakan pada aplikasi sebagai referensi yang lebih akurat dibandingkan estimasi statis pada halaman produk.",
+      "root_cause": "Sistem kalkulasi estimasi pengiriman pada halaman produk tidak memperhitungkan variabel operasional dinamis kurir sehingga menghasilkan perkiraan waktu yang tidak selalu akurat.",
+      "escalated": false,
+      "resolved_in": "1 hari kerja",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-048",
+      "order_id": "ORD-2025-1310",
+      "assigned_to": "Agent Hendra",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-049",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "cod_payment",
+          "primary": true
+        },
+        {
+          "intent": "payment_issue",
+          "primary": false
+        }
+      ],
+      "category": "pembayaran",
+      "issue": "Kurir mencatat nominal tagihan COD yang berbeda dari nilai pesanan yang sebenarnya sehingga pelanggan membayar jumlah yang lebih besar dari yang seharusnya pada saat pengantaran. Pelanggan meminta pengembalian selisih kelebihan pembayaran yang terjadi akibat kesalahan pencatatan kurir.",
+      "resolution": "Agen memverifikasi nilai pesanan yang tercatat pada sistem dan membandingkannya dengan nominal COD yang dibayarkan pelanggan berdasarkan bukti pembayaran yang dikirimkan. Setelah selisih kelebihan bayar dikonfirmasi, laporan diteruskan ke tim mitra logistik untuk proses pengembalian dana selisih melalui mekanisme klaim kesalahan pencatatan kurir. Pelanggan diberikan nomor referensi klaim dan konfirmasi bahwa pengembalian selisih akan diproses dalam 2 jam melalui koordinasi langsung antara platform dan pihak kurir.",
+      "root_cause": "Kesalahan pencatatan nominal tagihan COD oleh kurir pada saat proses pengantaran menyebabkan pelanggan membayar jumlah yang melebihi nilai pesanan yang sebenarnya.",
+      "escalated": false,
+      "resolved_in": "2 jam",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-049",
+      "order_id": "ORD-2025-7236",
+      "assigned_to": "Agent Wulan",
+      "status": "resolved"
+    },
+    {
+      "doc_id": "ticket-050",
+      "collection": "ticket_history",
+      "intents": [
+        {
+          "intent": "check_stock",
+          "primary": true
+        },
+        {
+          "intent": "complaint",
+          "primary": false
+        }
+      ],
+      "category": "produk",
+      "issue": "Pesanan yang telah dikonfirmasi dan dibayar lunas dibatalkan oleh penjual dengan alasan stok produk kosong, padahal sistem menampilkan status stok tersedia pada saat proses pembelian dilakukan. Pelanggan menyampaikan keluhan atas ketidaksesuaian informasi stok dan meminta penjelasan serta penyelesaian segera.",
+      "resolution": "Agen mengonfirmasi bahwa pembatalan terjadi akibat ketidaksesuaian antara stok yang ditampilkan pada sistem platform dengan stok fisik aktual yang dimiliki penjual pada saat pesanan masuk. Refund penuh diinisiasi secara otomatis ke saldo dompet digital pelanggan dalam 3 hari kerja sebagai konsekuensi pembatalan yang disebabkan oleh kesalahan informasi stok dari pihak penjual. Laporan ketidakakuratan stok diteruskan ke tim pemantauan penjual untuk mendorong penjual melakukan sinkronisasi stok secara berkala guna mencegah kejadian serupa.",
+      "root_cause": "Penjual tidak melakukan pembaruan data stok secara sinkron dengan sistem platform sehingga informasi ketersediaan produk yang ditampilkan kepada pembeli tidak mencerminkan kondisi stok fisik yang sebenarnya.",
+      "escalated": false,
+      "resolved_in": "30 menit",
+      "language": "id",
+      "source": "synthetic",
+      "updated_at": "2025-01-01",
+      "ticket_id": "TKT-2025-050",
+      "order_id": "ORD-2025-5519",
+      "assigned_to": "Agent Rizky",
+      "status": "resolved"
+    }
   ]
 }

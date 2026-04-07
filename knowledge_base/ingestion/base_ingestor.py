@@ -63,14 +63,19 @@ class BaseIngestor:
 
     def build_payload(self, doc: dict) -> dict:
         raise NotImplementedError
+    
+    def create_payload_indexes(self):
+        """Override di subclass untuk tambah payload index."""
+        pass
 
     def ingest(self, batch_size: int = 5, recreate: bool = False):
         self.create_collection(recreate=recreate)
+        self.create_payload_indexes()
         docs = self.load_documents()
 
         print("Generating embeddings (batch)...")
         texts   = [self.build_text_for_embedding(doc) for doc in docs]
-        vectors = self.embeddings.embed_documents(texts)  # batch sekaligus
+        vectors = self.embeddings.embed_documents(texts)  
         print(f"Embeddings selesai: {len(vectors)} vektor")
 
         points  = []

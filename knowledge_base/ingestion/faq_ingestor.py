@@ -1,8 +1,3 @@
-"""
-Ingestor for faq_policy collections.
-Embedded text : question + answer
-"""
-
 import argparse
 from knowledge_base.ingestion.base_ingestor import BaseIngestor
 
