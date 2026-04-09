@@ -1,5 +1,5 @@
 import os
-from langchain_groq import ChatGroq
+from langchain_openai import ChatOpenAI
 from langgraph.prebuilt import create_react_agent
 from langchain_core.messages import SystemMessage
 from agents.tools.rag_tools     import make_rag_tool
@@ -32,9 +32,10 @@ class ProductAgent:
 
     def __init__(self, retriever):
         self.retriever = retriever
-        self.llm = ChatGroq(
-            model=os.getenv("GROQ_MODEL", "meta-llama/llama-4-scout-17b-16e-instruct"),
-            api_key=os.getenv("GROQ_API_KEY"),
+        self.llm = ChatOpenAI(
+            model=os.getenv("OPENROUTER_MODEL", "openai/gpt-oss-120b:free"),
+            api_key=os.getenv("OPENROUTER_API_KEY"),
+            base_url="https://openrouter.ai/api/v1",
             temperature=0.3,
         )
 

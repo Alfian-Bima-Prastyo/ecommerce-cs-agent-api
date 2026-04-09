@@ -3,7 +3,7 @@ import json
 import time
 from typing import TypedDict
 from langgraph.graph import StateGraph, END
-from langchain_groq import ChatGroq
+from langchain_openai import ChatOpenAI
 from agents.faq_agent        import FAQAgent
 from agents.product_agent    import ProductAgent
 from agents.order_agent      import OrderAgent
@@ -98,9 +98,11 @@ class Orchestrator:
             "promo_agent":      PromoAgent(retriever),
         }
 
-        self.router_llm = ChatGroq(
-            model=os.getenv("GROQ_MODEL_PROD", os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")),
-            api_key=os.getenv("GROQ_API_KEY"),
+
+        self.router_llm = ChatOpenAI(
+            model=os.getenv("OPENROUTER_MODEL", "openai/gpt-oss-120b:free"),
+            api_key=os.getenv("OPENROUTER_API_KEY"),
+            base_url="https://openrouter.ai/api/v1",
             temperature=0,
         )
 

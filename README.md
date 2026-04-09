@@ -33,7 +33,7 @@ User Query
 | Komponen | Tools |
 |---|---|
 | Orchestrator | LangGraph |
-| LLM | Groq (llama-3.1-8b-instant) |
+| LLM | OpenRouter (openai/gpt-oss-120b:free) |
 | Embedding | BAAI/bge-m3 |
 | Vector Store | Qdrant Cloud |
 | Sparse Search | BM25 (rank-bm25) |

@@ -1,5 +1,5 @@
 import os
-from langchain_groq import ChatGroq
+from langchain_openai import ChatOpenAI
 from retrieval.hybrid_retriever import HybridRetriever
 
 class BaseAgent:
@@ -11,9 +11,10 @@ class BaseAgent:
     ):
         self.retriever = retriever
         self.top_k     = top_k
-        self.llm       = ChatGroq(
-            model=model or os.getenv("GROQ_MODEL", "meta-llama/llama-4-scout-17b-16e-instruct"),
-            api_key=os.getenv("GROQ_API_KEY"),
+        self.llm = ChatOpenAI(
+            model=os.getenv("OPENROUTER_MODEL", "openai/gpt-oss-120b:free"),
+            api_key=os.getenv("OPENROUTER_API_KEY"),
+            base_url="https://openrouter.ai/api/v1",
             temperature=0.3,
         )
 
