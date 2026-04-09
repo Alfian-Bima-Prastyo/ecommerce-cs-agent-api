@@ -1,3 +1,12 @@
+---
+title: Ecommerce Chat Agent Api
+emoji: 🐢
+colorFrom: red
+colorTo: green
+sdk: docker
+pinned: false
+---
+
 # Ecommerce Customer Service Agent
 
 Agentic RAG system untuk customer service e-commerce. Dibangun sebagai proyek portofolio.
