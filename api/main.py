@@ -94,6 +94,10 @@ class VoucherItem(BaseModel):
     is_active:    bool
 
 # Endpoints
+@app.get("/")
+def root():
+    return {"status": "ok", "message": "Ecommerce CS API is running"}
+
 # health check endpoint
 @app.get("/health")
 def health():
