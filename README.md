@@ -54,6 +54,8 @@ synthetic yang mencakup FAQ kebijakan, katalog produk, riwayat tiket, promo/vouc
 - **Retry with backoff** — decorator `@with_retry` di semua agent, max 2x dengan exponential backoff
 
 ## Struktur Folder
+
+```
 ecommerce-cs-agent/
 ├── agents/
 │   ├── tools/               # 17 business tools
@@ -73,6 +75,7 @@ ecommerce-cs-agent/
 ├── tests/                    # 30 unit tests
 ├── ingest_all.py
 └── data/synthetic/           # 165 dokumen knowledge base
+```
 
 ## Setup
 
